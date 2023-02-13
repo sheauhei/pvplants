@@ -68,19 +68,6 @@ function App() {
               className: 'trigger',
               onClick: toggleCollapsed,
             })}
-            {/* <div style={{ display: 'flex', alignItems: 'center' }}> */}
-              {/* <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'white' }}>Micro Electricity</div>
-              <div style={{ flex: 1 }} /> */}
-              {/* <Popover placement="bottomRight" content={userMenu}>
-                <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                  <UserOutlined style={{ fontSize: '24px', marginRight: '8px' }} />
-                  {loggedIn ? (
-                    <span style={{ fontSize: '18px', color: 'white' }}>User Name</span>
-                  ) :                <span style={{ fontSize: '18px', color: 'white' }}>Login</span>
-              }
-            </div>
-          </Popover> */}
-        {/* </div> */}
       </Header>
       <Content style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
         <Routes>
