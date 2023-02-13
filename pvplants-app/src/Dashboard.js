@@ -1,27 +1,20 @@
-import React from 'react';
-import { PageContainer } from '@ant-design/pro-layout';
+import React, { useEffect } from 'react';
 
-const Dashboard = () => {
+function Dashboard() {
+  const apikey = 'eyJrIjoicDdNcXN6SlFqa2VYSzFDV3lxbzVKMlc4ZGl1NWJHMkciLCJuIjoiR3JhZmFuYSBFbWJlZCIsImlkIjoxfQ==';
+  const dashboardUrl = 'http://localhost:3000/d/x4cmMgJ4z/plant-analysis-v-2';
+
+  useEffect(() => {
+    const iframe = document.createElement('iframe');
+    iframe.src = dashboardUrl;
+    document.body.appendChild(iframe);
+  }, []);
+
   return (
-    <PageContainer>
-      <h1>Welcome to the PV Plants O&M Platform Dashboard</h1>
-      <p>This is the dashboard page, where you can view key performance indicators and metrics for your PV plants.</p>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ width: '30%', backgroundColor: '#FFF', padding: 20, borderRadius: 4 }}>
-          <h2>Plant Availability</h2>
-          <p>90%</p>
-        </div>
-        <div style={{ width: '30%', backgroundColor: '#FFF', padding: 20, borderRadius: 4 }}>
-          <h2>Plant Performance Ratio</h2>
-          <p>80%</p>
-        </div>
-        <div style={{ width: '30%', backgroundColor: '#FFF', padding: 20, borderRadius: 4 }}>
-          <h2>Total Energy Generated</h2>
-          <p>10,000 kWh</p>
-        </div>
-      </div>
-    </PageContainer>
+    <div>
+      <h1>Dashboard</h1>
+    </div>
   );
-};
+}
 
 export default Dashboard;
