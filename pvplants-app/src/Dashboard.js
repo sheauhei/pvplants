@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Select } from 'antd';
+const { Option } = Select;
 
 const Dashboard = () => {
   const [plant, setPlant] = useState('G0008');
@@ -15,18 +17,23 @@ const Dashboard = () => {
     }
   }, [plant]);
 
-  const handlePlantChange = (event) => {
-    setPlant(event.target.value);
+  // const handlePlantChange = (event) => {
+  //   setPlant(event.target.value);
+  // };
+
+  const handlePlantChange = value => {
+    setPlant(value);
   };
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      <label htmlFor="plant">Plant:</label>
-      <select id="plant" value={plant} onChange={handlePlantChange}>
-        <option value="G0008">G0008</option>
-        <option value="G0009">G0009</option>
-        <option value="G0010">G0010</option>
-      </select>
+      <div style={{ padding: '10px', borderBottom: '1px solid #eee' }}>
+        <Select value={plant} style={{ width: 120 }} onChange={handlePlantChange}>
+          <Option value="G0008">G0008</Option>
+          <Option value="G0009">G0009</Option>
+          <Option value="G0010">G0010</Option>
+        </Select>
+      </div>
       <iframe id="dashboard-iframe" title="dashboard" width="100%" height="100%" frameBorder="0"></iframe>
     </div>
   );

@@ -70,14 +70,7 @@ function App() {
               className: 'trigger',
               onClick: toggleCollapsed,
             })}
-            {/* <div className="right-menu">
-              <Popover content={userMenu} placement="bottomRight">
-                <div className="user-info">
-                  <UserOutlined />
-                  <span className="username">{loggedIn ? 'Admin' : 'Guest'}</span>
-                </div>
-              </Popover>
-            </div> */}
+
           </Header>
           <Content className="site-layout-background" style={{ margin: '10px', minHeight: 280 }}>
             <Routes>

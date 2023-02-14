@@ -1,0 +1,164 @@
+Investor
+--------
+id (primary key)
+name
+
+SPV
+---
+id (primary key)
+name
+location
+incorporation_date
+owner
+
+Ownership
+---------
+id (primary key)
+investor_id (foreign key to Investor.id)
+spv_id (foreign key to SPV.id)
+holding_rate
+
+Plant
+-----
+id (primary key)
+name
+location
+latitude
+longitude
+capacity
+commissioning_date
+fit_price
+spv_id (foreign key to SPV.id)
+operator
+
+Meter
+-----
+id (primary key)
+name
+plant_id (foreign key to Plant.id)
+
+Revenue
+-------
+id (primary key)
+plant_id (foreign key to Plant.id)
+year
+month
+total_energy_generation
+total_revenue
+total_cost
+profit
+average_price_per_kwh
+
+PlantInvestorRevenue
+--------------------
+id (primary key)
+plant_investor_id (foreign key to PlantInvestor.id)
+year
+month
+total_energy_generation
+total_revenue
+total_cost
+profit
+average_price_per_kwh
+
+InverterInstance
+----------------
+id (primary key)
+name
+capacity
+inverter_model_id (foreign key to InverterModel.id)
+plant_id (foreign key to Plant.id)
+
+InverterModel
+--------------
+id (primary key)
+name
+manufacturer
+efficiency
+max_dc_input_voltage
+max_dc_input_power
+max_ac_output_power
+mppt_count
+
+ModuleModel
+-----------
+id (primary key)
+name
+manufacturer
+model_number
+module_type
+capacity
+efficiency
+temperature_coefficient
+spectral_response
+
+MPPT
+----
+id (primary key)
+name
+capacity
+inverter_instance_id (foreign key to InverterInstance.id)
+
+String
+------
+id (primary key)
+name
+capacity
+azimuth_angle
+elevation_angle
+module_count
+module_capacity
+inverter_instance_id (foreign key to InverterInstance.id)
+
+Module
+------
+id (primary key)
+name
+model_id (foreign key to ModuleModel.id)
+azimuth_angle
+elevation_angle
+
+
+MPPT_String
+-----------
+id (primary key)
+mppt_id (foreign key to MPPT.id)
+string_id (foreign key to String.id)
+
+StringModule
+------------
+id (primary key)
+string_id (foreign key to String.id)
+module_id (foreign key to Module.id)
+
+--------------------------------------------------------
+
+Signal
+------
+id (primary key)
+name
+description
+timestamp
+plant_id (foreign key to Plant.id)
+inverter_id (foreign key to InverterInstance.id)
+string_id (foreign key to String.id)
+module_id (foreign key to Module.id)
+
+Alert
+-----
+id (primary key)
+name
+description
+timestamp
+severity
+potential_energy_loss
+plant_id (foreign key to Plant.id)
+inverter_id (foreign key to InverterInstance.id)
+string_id (foreign key to String.id)
+module_id (foreign key to Module.id)
+
+SignalAlert
+-----------
+id (primary key)
+signal_id (foreign key to Signal.id)
+alert_id (foreign key to Alert.id)
