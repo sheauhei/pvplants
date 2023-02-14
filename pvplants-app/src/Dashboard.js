@@ -1,37 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Dashboard() {
-  const apikey = 'eyJrIjoicDdNcXN6SlFqa2VYSzFDV3lxbzVKMlc4ZGl1NWJHMkciLCJuIjoiR3JhZmFuYSBFbWJlZCIsImlkIjoxfQ==';
-  const dashboardUrl = 'http://localhost:3000/d/x4cmMgJ4z/plant-analysis-v-2';
-  const iframeUrl = `${dashboardUrl}?orgId=1&kiosk=tv&theme=light&from=now-30m&to=now&panelId=1&embed`;
+const Dashboard = () => {
+  const [plant, setPlant] = useState('G0008');
 
   useEffect(() => {
-    // const iframeUrl = `${dashboardUrl}?orgId=1&theme=light&from=now-30m&to=now&panelId=1&embed`;
-    // const iframeId = 'grafana-iframe';
+    const iframe = document.getElementById('dashboard-iframe');
 
-    // Check if the iframe already exists
-    // const existingIframe = document.getElementById(iframeId);
-    // if (existingIframe) {
-    //   return;
-    // }
-    
-    // const cssRules = 'position: "relative", width: 100%; height: 100%;';
-    // const iframe = document.createElement('iframe');
-    // iframe.style = cssRules;
-    // iframe.src = iframeUrl;
-    // iframe.id = iframeId;
-    // document.getElementById("grafana-container").appendChild(iframe);
-  }, []);
+    if (iframe) {
+      const dashboardUrl = 'http://localhost:3000/d/x4cmMgJ4z/plant-analysis-v-2';
+
+      const iframeUrl = `${dashboardUrl}?orgId=1&kiosk=tv&theme=light&from=now-30m&to=now&panelId=1&var-plant=${plant}&embed`;
+
+      iframe.src = iframeUrl;
+    }
+  }, [plant]);
+
+  const handlePlantChange = (event) => {
+    setPlant(event.target.value);
+  };
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      <iframe
-        title="Grafana Dashboard"
-        src={iframeUrl}
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-      />
+      <label htmlFor="plant">Plant:</label>
+      <select id="plant" value={plant} onChange={handlePlantChange}>
+        <option value="G0008">G0008</option>
+        <option value="G0009">G0009</option>
+        <option value="G0010">G0010</option>
+      </select>
+      <iframe id="dashboard-iframe" title="dashboard" width="100%" height="100%" frameBorder="0"></iframe>
     </div>
   );
-}
+};
 
 export default Dashboard;

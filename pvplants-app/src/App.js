@@ -69,7 +69,7 @@ function App() {
               onClick: toggleCollapsed,
             })}
       </Header>
-      <Content style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
+      <Content style={{ margin: '10px 10px', padding: 10, height:'100%', width:'100%' }}>
         <Routes>
           <Route exact path="/" element={<Dashboard />} />
           <Route exact path="/plants" element={<PlantDetails />} />
