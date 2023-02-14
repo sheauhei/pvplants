@@ -13,6 +13,7 @@ import {
 import Dashboard from './Dashboard';
 import PlantDetails from './PlantDetails';
 import MaintenanceLogs from './MaintenanceLogs';
+import './App.css';
 
 const { Header, Sider, Content } = Layout;
 
@@ -47,9 +48,10 @@ function App() {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo" style={{ height: '32px', margin: '16px' }}>
-          <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'white' }}>Micro Electricity</div>
+            <div className="logo-img" />
+            <h1 className="logo-title">ME</h1>
           </div>
-          
+
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1" icon={<AppstoreOutlined />}>
               <Link to="/">Dashboard</Link>
@@ -68,18 +70,26 @@ function App() {
               className: 'trigger',
               onClick: toggleCollapsed,
             })}
-      </Header>
-      <Content style={{ margin: '10px 10px', padding: 10, height:'100%', width:'100%' }}>
-        <Routes>
-          <Route exact path="/" element={<Dashboard />} />
-          <Route exact path="/plants" element={<PlantDetails />} />
-          <Route exact path="/maintenance" element={<MaintenanceLogs />} />
-        </Routes>
-      </Content>
-    </Layout>
-  </Layout>
-</Router>
-);
+            {/* <div className="right-menu">
+              <Popover content={userMenu} placement="bottomRight">
+                <div className="user-info">
+                  <UserOutlined />
+                  <span className="username">{loggedIn ? 'Admin' : 'Guest'}</span>
+                </div>
+              </Popover>
+            </div> */}
+          </Header>
+          <Content className="site-layout-background" style={{ margin: '10px', minHeight: 280 }}>
+            <Routes>
+              <Route exact path="/" element={<Dashboard />} />
+              <Route exact path="/plants" element={<PlantDetails />} />
+              <Route exact path="/maintenance" element={<MaintenanceLogs />} />
+            </Routes>
+          </Content>
+        </Layout>
+      </Layout>
+    </Router>
+  );
 }
 
 export default App;

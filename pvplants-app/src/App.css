@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -40,4 +40,193 @@
 iframe_size {
   width: 100%;
   height: 100%;
+} */
+
+/* App.css */
+/*
+.site-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.site-layout-background {
+  background: #fff;
+  padding: 0;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #108ee9;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 48px);
+  justify-content: space-between;
+}
+
+.ant-layout-sider {
+  background: #001529;
+  overflow: auto;
+}
+
+.ant-layout-content {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.ant-layout-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 16px;
+  z-index: 1;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  line-height: 64px;
+}
+
+.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-dark .ant-menu-item:hover {
+  color: #1890ff;
+  border-left-color: #1890ff;
+}
+
+.ant-menu-dark .ant-menu-item-selected > a,
+.ant-menu-dark .ant-menu-item:hover > a {
+  color: #1890ff;
+}*/ 
+
+@import '~antd/dist/reset.css';
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(28, 218, 69, 0.3);
+}
+
+.logo img {
+  height: 32px;
+}
+
+.site-layout .logo {
+  margin: 16px 28px 16px 0;
+  float: left;
+}
+
+.site-layout .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.site-layout .trigger:hover {
+  color: #1890ff;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.site-layout .ant-layout-header {
+  padding: 0;
+}
+
+.site-layout .site-layout-header {
+  background: #fff;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  z-index: 10;
+}
+
+.site-layout .site-layout-header .ant-menu-item-selected {
+  color: #1890ff;
+}
+
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item:hover,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item-active {
+  border-bottom-color: #1890ff;
+}
+
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item {
+  border-bottom: 2px solid transparent;
+}
+
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item:hover,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-submenu:hover,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item-active,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-submenu-active,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-submenu-open,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-submenu-selected,
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item-selected {
+  border-bottom-color: #1890ff;
+}
+
+.site-layout .site-layout-header .ant-menu-item > a,
+.site-layout .site-layout-header .ant-menu-item > a:hover {
+  color: #333;
+}
+
+.site-layout .site-layout-header .ant-menu-item .anticon + span {
+  margin-left: 8px;
+}
+
+.site-layout .site-layout-header .ant-menu-horizontal > .ant-menu-item {
+  margin-right: 24px;
+}
+
+.site-layout .site-layout-header .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.site-layout .ant-layout-sider-trigger {
+  background: #fff;
+  color: #333;
+  border-right: 1px solid #f0f0f0;
+}
+
+.site-layout .ant-layout-sider-trigger:hover {
+  color: #1890ff;
+}
+
+.site-layout .ant-layout-sider {
+  background: #001529;
+  overflow: auto;
+}
+
+.site-layout .ant-layout-sider .ant-menu {
+  background: #001529;
+  margin-top: 16px;
 }
