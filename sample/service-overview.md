@@ -14,7 +14,7 @@ Our service is designed to be scalable to support large and growing numbers of P
 We take security very seriously and will implement industry-standard security measures to protect our customers' data. This will include data encryption, two-factor authentication, and role-based access controls.
 
 ## Infrastructure:
-Our service will be hosted on a cloud platform such as Amazon Web Services or Microsoft Azure. This will provide the scalability, reliability, and security needed to support our customers' PV plants.
+Our service will be hosted on a cloud platform on Amazon Web Services. This will provide the scalability, reliability, and security needed to support our customers' PV plants.
 
 ## Integration:
 Our service will integrate with third-party systems and services such as weather data providers and energy market platforms to provide a comprehensive view of the performance of the PV plants.
