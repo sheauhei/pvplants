@@ -1,0 +1,46 @@
+Inverter:
+
+Timestamp (timestamp, time of the measurement)
+Inverter_ID (string, unique identifier of the inverter)
+DC_current_MPPT_1 (float, DC current from MPPT point 1)
+DC_current_MPPT_2 (float, DC current from MPPT point 2)
+DC_voltage_MPPT_1 (float, DC voltage from MPPT point 1)
+DC_voltage_MPPT_2 (float, DC voltage from MPPT point 2)
+DC_power_MPPT_1 (float, DC power from MPPT point 1)
+DC_power_MPPT_2 (float, DC power from MPPT point 2)
+AC_current_phase_1 (float, AC current on phase 1)
+AC_current_phase_2 (float, AC current on phase 2)
+AC_current_phase_3 (float, AC current on phase 3)
+AC_voltage_phase_1 (float, AC voltage on phase 1)
+AC_voltage_phase_2 (float, AC voltage on phase 2)
+AC_voltage_phase_3 (float, AC voltage on phase 3)
+AC_power_phase_1 (float, AC power on phase 1)
+AC_power_phase_2 (float, AC power on phase 2)
+AC_power_phase_3 (float, AC power on phase 3)
+AC_power_total (float, sum of all phases)
+Internal_temperature (float, inverter internal temperature)
+Power_factor (float, power factor of the inverter)
+Daily_energy_generation (float, energy generated in the current day)
+Historical_energy_generation (float, energy generated since the inverter was installed)
+Error_codes (string, error codes reported by the inverter)
+
+Plant:
+Timestamp (timestamp, time of the measurement)
+Irradiance
+Temperature
+
+Meter:
+Timestamp (timestamp, time of the measurement)
+Power_meter_ID (string, unique identifier of the power meter)
+Voltage_phase_1 (float, voltage on phase 1)
+Current_phase_1 (float, current on phase 1)
+Power_phase_1 (float, power on phase 1)
+Voltage_phase_2 (float, voltage on phase 2)
+Current_phase_2 (float, current on phase 2)
+Power_phase_2 (float, power on phase 2)
+Voltage_phase_3 (float, voltage on phase 2)
+Current_phase_3 (float, current on phase 2)
+Power_phase_3 (float, power on phase 2)
+Daily_energy_generation ( (float, energy generated in the current day)
+Historical_energy_generation (float, energy generated since the inverter was installed)
+Error_codes (string, error codes reported by the inverter)
