@@ -5,6 +5,12 @@ type SystemAdmin {
   email: String!
 }
 
+input SystemAdminInput {
+  username: String!
+  password: String!
+  email: String!
+}
+
 type Organization {
   id: Int!
   name: String!
@@ -12,19 +18,32 @@ type Organization {
   contact_person: String!
   contact_email: String!
   contact_phone: String!
-  admin: SystemAdmin!
-  microgrids: [Microgrid!]!
-  users: [EMSUser!]!
+  admin: EMSUser!
+}
+
+input OrganizationInput {
+  name: String!
+  address: String!
+  contact_person: String!
+  contact_email: String!
+  contact_phone: String!
+  admin_id: Int!
 }
 
 type EMSUser {
   id: Int!
   username: String!
-  password: String!
   email: String!
   role: String!
   organization: Organization!
-  microgrids: [Microgrid!]!
+}
+
+input EMSUserInput {
+  username: String!
+  email: String!
+  password: String!
+  role: String!
+  organization_id: Int!
 }
 
 type Microgrid {
@@ -35,12 +54,25 @@ type Microgrid {
   max_generation: Float!
   voltage: Float!
   frequency: Float!
-  topology: JSON!
+  topology: JSON
   owner: Organization!
   utility: Utility
   renewable_ppa: RenewablePPAContract
-  system_settings: SystemSettings
-  devices: [Device!]!
+  system_settings_id: Int
+}
+
+input MicrogridInput {
+  name: String!
+  location: String!
+  max_load: Float!
+  max_generation: Float!
+  voltage: Float!
+  frequency: Float!
+  topology: JSON
+  owner_id: Int!
+  utility_id: Int
+  renewable_ppa_id: Int
+  system_settings_id: Int
 }
 
 type Device {
@@ -52,12 +84,16 @@ type Device {
   model_number: String!
   serial_number: String!
   microgrid: Microgrid!
-  ess: ESS
-  ev_charger: EVCharger
-  load: Load
-  solar_energy: SolarEnergy
-  renewable_source: RenewableSourceFromPPA
-  live_data: [LiveData!]!
+}
+
+input DeviceInput {
+  device_type: String!
+  name: String!
+  description: String!
+  manufacturer: String!
+  model_number: String!
+  serial_number: String!
+  microgrid_id: Int!
 }
 
 type ESS {
@@ -69,7 +105,16 @@ type ESS {
   max_charge_rate: Float!
   max_discharge_rate: Float!
   soc: Float!
-  live_data: [ESSLiveData!]!
+}
+
+input ESSInput {
+  device_id: Int!
+  capacity: Float!
+  charge_efficiency: Float!
+  discharge_efficiency: Float!
+  max_charge_rate: Float!
+  max_discharge_rate: Float!
+  soc: Float!
 }
 
 type EVCharger {
@@ -77,14 +122,23 @@ type EVCharger {
   device: Device!
   num_ports: Int!
   max_charging_power: Float!
-  live_data: [EVChargerLiveData!]!
+}
+
+input EVChargerInput {
+  device_id: Int!
+  num_ports: Int!
+  max_charging_power: Float!
 }
 
 type Load {
   id: Int!
   device: Device!
   power: Float!
-  live_data: [LoadLiveData!]!
+}
+
+input LoadInput {
+  device_id: Int!
+  power: Float!
 }
 
 type SolarEnergy {
@@ -94,21 +148,27 @@ type SolarEnergy {
   efficiency: Float!
   tilt_angle: Float!
   azimuth_angle: Float!
-  live_data: [SolarEnergyLiveData!]!
 }
 
-type RenewableSourceFromPPA {
-  id: Int!
-  source_type: String!
-  device: Device!
-  renewable_ppa: RenewablePPAContract!
+input SolarEnergyInput {
+  device_id: Int!
+  capacity: Float!
+  efficiency: Float!
+  tilt_angle: Float!
+  azimuth_angle: Float!
 }
 
 type LiveData {
   id: Int!
   timestamp: String!
   device: Device!
-  data: JSON!
+  data: JSON
+}
+
+input LiveDataInput {
+  timestamp: String!
+  device_id: Int!
+  data: JSON
 }
 
 type ESSLiveData {
@@ -118,7 +178,16 @@ type ESSLiveData {
   charge_rate: Float!
   discharge_rate: Float!
   soc: Float!
-  data: JSON!
+  data: JSON
+}
+
+input ESSLiveDataInput {
+  timestamp: String!
+  device_id: Int!
+  charge_rate: Float!
+  discharge_rate: Float!
+  soc: Float!
+  data: JSON
 }
 
 type EVChargerLiveData {
@@ -127,7 +196,15 @@ type EVChargerLiveData {
   device: Device!
   charging_rate: Float!
   num_ports: Int!
-  data: JSON!
+  data: JSON
+}
+
+input EVChargerLiveDataInput {
+  timestamp: String!
+  device_id: Int!
+  charging_rate: Float!
+  num_ports: Int!
+  data: JSON
 }
 
 type LoadLiveData {
@@ -135,7 +212,14 @@ type LoadLiveData {
   timestamp: String!
   device: Device!
   power: Float!
-  data: JSON!
+  data: JSON
+}
+
+input LoadLiveDataInput {
+  timestamp: String!
+  device_id: Int!
+  power: Float!
+  data: JSON
 }
 
 type SolarEnergyLiveData {
@@ -147,7 +231,18 @@ type SolarEnergyLiveData {
   energy_production_lifetime: Float!
   energy_consumption_today: Float!
   energy_consumption_lifetime: Float!
-  data: JSON!
+  data: JSON
+}
+
+input SolarEnergyLiveDataInput {
+  timestamp: String!
+  device_id: Int!
+  power: Float!
+  energy_production_today: Float!
+  energy_production_lifetime: Float!
+  energy_consumption_today: Float!
+  energy_consumption_lifetime: Float!
+  data: JSON
 }
 
 type SolarPlantLiveData {
@@ -155,7 +250,14 @@ type SolarPlantLiveData {
   timestamp: String!
   plant_id: Int!
   power: Float!
-  data: JSON!
+  data: JSON
+}
+
+input SolarPlantLiveDataInput {
+  timestamp: String!
+  plant_id: Int!
+  power: Float!
+  data: JSON
 }
 
 type WindEnergyLiveData {
@@ -163,7 +265,14 @@ type WindEnergyLiveData {
   timestamp: String!
   device: Device!
   power: Float!
-  data: JSON!
+  data: JSON
+}
+
+input WindEnergyLiveDataInput {
+  timestamp: String!
+  device_id: Int!
+  power: Float!
+  data: JSON
 }
 
 type WindPlantLiveData {
@@ -171,7 +280,14 @@ type WindPlantLiveData {
   timestamp: String!
   plant_id: Int!
   power: Float!
-  data: JSON!
+  data: JSON
+}
+
+input WindPlantLiveDataInput {
+  timestamp: String!
+  plant_id: Int!
+  power: Float!
+  data: JSON
 }
 
 type Utility {
@@ -196,6 +312,17 @@ type UtilityPriceContract {
   utility: Utility!
 }
 
+input UtilityPriceContractInput {
+  price: Float!
+  capacity: Float!
+  term: Int!
+  start_date: String!
+  end_date: String!
+  contract_capacity: Float!
+  microgrid_id: Int!
+  utility_id: Int!
+}
+
 type RenewablePPAContract {
   id: Int!
   supplier: String!
@@ -208,7 +335,24 @@ type RenewablePPAContract {
   technology: String!
 }
 
+input RenewablePPAContractInput {
+  supplier: String!
+  price: Float!
+  capacity: Float!
+  term: Int!
+  start_date: String!
+  end_date: String!
+  contract_capacity: Float!
+  technology: String!
+}
+
 type Query {
+  systemAdmin(id: Int!): SystemAdmin
+  systemAdmins: [SystemAdmin]
+  organization(id: Int!): Organization
+  organizations: [Organization]
+  emsUser(id: Int!): EMSUser
+  emsUsers(organization_id: Int!): [EMSUser]
   microgrid(id: Int!): Microgrid
   microgrids: [Microgrid]
   device(id: Int!): Device
@@ -230,11 +374,11 @@ type Query {
   loadLiveData(id: Int!): LoadLiveData
   loadLiveDataList(device_id: Int!): [LoadLiveData]
   solarEnergyLiveData(id: Int!): SolarEnergyLiveData
-  solarEnergyLiveDataList(device_id: Int!): [SolarEnergyLiveData]
+  solarEnergyLiveDataList(microgrid_id: Int!): [SolarEnergyLiveData]
   solarPlantLiveData(id: Int!): SolarPlantLiveData
   solarPlantLiveDataList(plant_id: Int!): [SolarPlantLiveData]
   windEnergyLiveData(id: Int!): WindEnergyLiveData
-  windEnergyLiveDataList(device_id: Int!): [WindEnergyLiveData]
+  windEnergyLiveDataList(microgrid_id: Int!): [WindEnergyLiveData]
   windPlantLiveData(id: Int!): WindPlantLiveData
   windPlantLiveDataList(plant_id: Int!): [WindPlantLiveData]
   utility(id: Int!): Utility
@@ -246,6 +390,15 @@ type Query {
 }
 
 type Mutation {
+  createSystemAdmin(systemAdmin: SystemAdminInput!): SystemAdmin
+  updateSystemAdmin(id: Int!, systemAdmin: SystemAdminInput!): SystemAdmin
+  deleteSystemAdmin(id: Int!): Boolean
+  createOrganization(organization: OrganizationInput!): Organization
+  updateOrganization(id: Int!, organization: OrganizationInput!): Organization
+  deleteOrganization(id: Int!): Boolean
+  createEMSUser(emsUser: EMSUserInput!): EMSUser
+  updateEMSUser(id: Int!, emsUser: EMSUserInput!): EMSUser
+  deleteEMSUser(id: Int!): Boolean
   createMicrogrid(microgrid: MicrogridInput!): Microgrid
   updateMicrogrid(id: Int!, microgrid: MicrogridInput!): Microgrid
   deleteMicrogrid(id: Int!): Boolean
@@ -279,9 +432,25 @@ type Mutation {
   createSolarEnergyLiveData(solarEnergyLiveData: SolarEnergyLiveDataInput!): SolarEnergyLiveData
   updateSolarEnergyLiveData(id: Int!, solarEnergyLiveData: SolarEnergyLiveDataInput!): SolarEnergyLiveData
   deleteSolarEnergyLiveData(id: Int!): Boolean
-  createUser(user: UserInput!): User
-  updateUser(id: Int!, user: UserInput!): User
-  deleteUser(id: Int!): Boolean
-  login(username: String!, password: String!): String
-  logout: Boolean
+  createSolarPlantLiveData(solarPlantLiveData: SolarPlantLiveDataInput!): SolarPlantLiveData
+  updateSolarPlantLiveData(id: Int!, solarPlantLiveData: SolarPlantLiveDataInput!): SolarPlantLiveData
+  deleteSolarPlantLiveData(id: Int!): Boolean
+  createWindEnergyLiveData(windEnergyLiveData: WindEnergyLiveDataInput!): WindEnergyLiveData
+  updateWindEnergyLiveData(id: Int!, windEnergyLiveData: WindEnergyLiveDataInput!): WindEnergyLiveData
+  deleteWindEnergyLiveData(id: Int!): Boolean
+
+  # Renewable PPA Contract Mutations
+  createRenewablePPAContract(renewablePPAContract: RenewablePPAContractInput!): RenewablePPAContract
+  updateRenewablePPAContract(id: Int!, renewablePPAContract: RenewablePPAContractInput!): RenewablePPAContract
+  deleteRenewablePPAContract(id: Int!): Boolean
+  
+  # Utility Mutations
+  createUtility(utility: UtilityInput!): Utility
+  updateUtility(id: Int!, utility: UtilityInput!): Utility
+  deleteUtility(id: Int!): Boolean
+  
+  # Utility Price Contract Mutations
+  createUtilityPriceContract(utilityPriceContract: UtilityPriceContractInput!): UtilityPriceContract
+  updateUtilityPriceContract(id: Int!, utilityPriceContract: UtilityPriceContractInput!): UtilityPriceContract
+  deleteUtilityPriceContract(id: Int!): Boolean
 }
