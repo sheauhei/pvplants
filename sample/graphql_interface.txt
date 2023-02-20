@@ -1,0 +1,287 @@
+type SystemAdmin {
+  id: Int!
+  username: String!
+  password: String!
+  email: String!
+}
+
+type Organization {
+  id: Int!
+  name: String!
+  address: String!
+  contact_person: String!
+  contact_email: String!
+  contact_phone: String!
+  admin: SystemAdmin!
+  microgrids: [Microgrid!]!
+  users: [EMSUser!]!
+}
+
+type EMSUser {
+  id: Int!
+  username: String!
+  password: String!
+  email: String!
+  role: String!
+  organization: Organization!
+  microgrids: [Microgrid!]!
+}
+
+type Microgrid {
+  id: Int!
+  name: String!
+  location: String!
+  max_load: Float!
+  max_generation: Float!
+  voltage: Float!
+  frequency: Float!
+  topology: JSON!
+  owner: Organization!
+  utility: Utility
+  renewable_ppa: RenewablePPAContract
+  system_settings: SystemSettings
+  devices: [Device!]!
+}
+
+type Device {
+  id: Int!
+  device_type: String!
+  name: String!
+  description: String!
+  manufacturer: String!
+  model_number: String!
+  serial_number: String!
+  microgrid: Microgrid!
+  ess: ESS
+  ev_charger: EVCharger
+  load: Load
+  solar_energy: SolarEnergy
+  renewable_source: RenewableSourceFromPPA
+  live_data: [LiveData!]!
+}
+
+type ESS {
+  id: Int!
+  device: Device!
+  capacity: Float!
+  charge_efficiency: Float!
+  discharge_efficiency: Float!
+  max_charge_rate: Float!
+  max_discharge_rate: Float!
+  soc: Float!
+  live_data: [ESSLiveData!]!
+}
+
+type EVCharger {
+  id: Int!
+  device: Device!
+  num_ports: Int!
+  max_charging_power: Float!
+  live_data: [EVChargerLiveData!]!
+}
+
+type Load {
+  id: Int!
+  device: Device!
+  power: Float!
+  live_data: [LoadLiveData!]!
+}
+
+type SolarEnergy {
+  id: Int!
+  device: Device!
+  capacity: Float!
+  efficiency: Float!
+  tilt_angle: Float!
+  azimuth_angle: Float!
+  live_data: [SolarEnergyLiveData!]!
+}
+
+type RenewableSourceFromPPA {
+  id: Int!
+  source_type: String!
+  device: Device!
+  renewable_ppa: RenewablePPAContract!
+}
+
+type LiveData {
+  id: Int!
+  timestamp: String!
+  device: Device!
+  data: JSON!
+}
+
+type ESSLiveData {
+  id: Int!
+  timestamp: String!
+  device: Device!
+  charge_rate: Float!
+  discharge_rate: Float!
+  soc: Float!
+  data: JSON!
+}
+
+type EVChargerLiveData {
+  id: Int!
+  timestamp: String!
+  device: Device!
+  charging_rate: Float!
+  num_ports: Int!
+  data: JSON!
+}
+
+type LoadLiveData {
+  id: Int!
+  timestamp: String!
+  device: Device!
+  power: Float!
+  data: JSON!
+}
+
+type SolarEnergyLiveData {
+  id: Int!
+  timestamp: String!
+  device: Device!
+  power: Float!
+  energy_production_today: Float!
+  energy_production_lifetime: Float!
+  energy_consumption_today: Float!
+  energy_consumption_lifetime: Float!
+  data: JSON!
+}
+
+type SolarPlantLiveData {
+  id: Int!
+  timestamp: String!
+  plant_id: Int!
+  power: Float!
+  data: JSON!
+}
+
+type WindEnergyLiveData {
+  id: Int!
+  timestamp: String!
+  device: Device!
+  power: Float!
+  data: JSON!
+}
+
+type WindPlantLiveData {
+  id: Int!
+  timestamp: String!
+  plant_id: Int!
+  power: Float!
+  data: JSON!
+}
+
+type Utility {
+  id: Int!
+  name: String!
+  location: String!
+  energy_sources: JSON!
+  peak_demand: Float!
+  peak_demand_time: String!
+  energy_rates: JSON!
+}
+
+type UtilityPriceContract {
+  id: Int!
+  price: Float!
+  capacity: Float!
+  term: Int!
+  start_date: String!
+  end_date: String!
+  contract_capacity: Float!
+  microgrid: Microgrid!
+  utility: Utility!
+}
+
+type RenewablePPAContract {
+  id: Int!
+  supplier: String!
+  price: Float!
+  capacity: Float!
+  term: Int!
+  start_date: String!
+  end_date: String!
+  contract_capacity: Float!
+  technology: String!
+}
+
+type Query {
+  microgrid(id: Int!): Microgrid
+  microgrids: [Microgrid]
+  device(id: Int!): Device
+  devices(microgrid_id: Int!): [Device]
+  ess(id: Int!): ESS
+  essList(microgrid_id: Int!): [ESS]
+  evCharger(id: Int!): EVCharger
+  evChargers(microgrid_id: Int!): [EVCharger]
+  load(id: Int!): Load
+  loads(microgrid_id: Int!): [Load]
+  solarEnergy(id: Int!): SolarEnergy
+  solarEnergyList(microgrid_id: Int!): [SolarEnergy]
+  liveData(id: Int!): LiveData
+  liveDataList(device_id: Int!): [LiveData]
+  essLiveData(id: Int!): ESSLiveData
+  essLiveDataList(device_id: Int!): [ESSLiveData]
+  evChargerLiveData(id: Int!): EVChargerLiveData
+  evChargerLiveDataList(device_id: Int!): [EVChargerLiveData]
+  loadLiveData(id: Int!): LoadLiveData
+  loadLiveDataList(device_id: Int!): [LoadLiveData]
+  solarEnergyLiveData(id: Int!): SolarEnergyLiveData
+  solarEnergyLiveDataList(device_id: Int!): [SolarEnergyLiveData]
+  solarPlantLiveData(id: Int!): SolarPlantLiveData
+  solarPlantLiveDataList(plant_id: Int!): [SolarPlantLiveData]
+  windEnergyLiveData(id: Int!): WindEnergyLiveData
+  windEnergyLiveDataList(device_id: Int!): [WindEnergyLiveData]
+  windPlantLiveData(id: Int!): WindPlantLiveData
+  windPlantLiveDataList(plant_id: Int!): [WindPlantLiveData]
+  utility(id: Int!): Utility
+  utilities: [Utility]
+  utilityPriceContract(id: Int!): UtilityPriceContract
+  utilityPriceContracts(microgrid_id: Int!): [UtilityPriceContract]
+  renewablePPAContract(id: Int!): RenewablePPAContract
+  renewablePPAContracts(microgrid_id: Int!): [RenewablePPAContract]
+}
+
+type Mutation {
+  createMicrogrid(microgrid: MicrogridInput!): Microgrid
+  updateMicrogrid(id: Int!, microgrid: MicrogridInput!): Microgrid
+  deleteMicrogrid(id: Int!): Boolean
+  createDevice(device: DeviceInput!): Device
+  updateDevice(id: Int!, device: DeviceInput!): Device
+  deleteDevice(id: Int!): Boolean
+  createESS(ess: ESSInput!): ESS
+  updateESS(id: Int!, ess: ESSInput!): ESS
+  deleteESS(id: Int!): Boolean
+  createEVCharger(evCharger: EVChargerInput!): EVCharger
+  updateEVCharger(id: Int!, evCharger: EVChargerInput!): EVCharger
+  deleteEVCharger(id: Int!): Boolean
+  createLoad(load: LoadInput!): Load
+  updateLoad(id: Int!, load: LoadInput!): Load
+  deleteLoad(id: Int!): Boolean
+  createSolarEnergy(solarEnergy: SolarEnergyInput!): SolarEnergy
+  updateSolarEnergy(id: Int!, solarEnergy: SolarEnergyInput!): SolarEnergy
+  deleteSolarEnergy(id: Int!): Boolean
+  createLiveData(liveData: LiveDataInput!): LiveData
+  updateLiveData(id: Int!, liveData: LiveDataInput!): LiveData
+  deleteLiveData(id: Int!): Boolean
+  createESSLiveData(essLiveData: ESSLiveDataInput!): ESSLiveData
+  updateESSLiveData(id: Int!, essLiveData: ESSLiveDataInput!): ESSLiveData
+  deleteESSLiveData(id: Int!): Boolean
+  createEVChargerLiveData(evChargerLiveData: EVChargerLiveDataInput!): EVChargerLiveData
+  updateEVChargerLiveData(id: Int!, evChargerLiveData: EVChargerLiveDataInput!): EVChargerLiveData
+  deleteEVChargerLiveData(id: Int!): Boolean
+  createLoadLiveData(loadLiveData: LoadLiveDataInput!): LoadLiveData
+  updateLoadLiveData(id: Int!, loadLiveData: LoadLiveDataInput!): LoadLiveData
+  deleteLoadLiveData(id: Int!): Boolean
+  createSolarEnergyLiveData(solarEnergyLiveData: SolarEnergyLiveDataInput!): SolarEnergyLiveData
+  updateSolarEnergyLiveData(id: Int!, solarEnergyLiveData: SolarEnergyLiveDataInput!): SolarEnergyLiveData
+  deleteSolarEnergyLiveData(id: Int!): Boolean
+  createUser(user: UserInput!): User
+  updateUser(id: Int!, user: UserInput!): User
+  deleteUser(id: Int!): Boolean
+  login(username: String!, password: String!): String
+  logout: Boolean
+}
