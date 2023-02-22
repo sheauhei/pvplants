@@ -1,0 +1,580 @@
+from __future__ import annotations
+import time
+import pandas as pd 
+import numpy as np
+from IPython import display
+from matplotlib import pyplot as plt
+from processor.process_utils import KEY
+from pathlib import Path
+from processor.alerts import alerts_generations, summary_alerts_lost
+
+from utils.ts_utils import query_inv_data
+from utils.db_utils import query_daily_irr_by_plant_id, upsert_table_of_plant_overview
+from utils.data_writer import DataWriter
+# from utils.local_db_writer import upsert_table_by_analaysis_table, upsert_table_of_plant_overview
+from processor.plant_model import build_plant_model
+from processor.process_utils import (AGGREGATE_FUNC_MAP, 
+                                     remove_daily_energy_by_date_range,
+                                     cal_good_reference_mean, 
+                                     filter_low_irr, 
+                                     trim_extreme_outlier, 
+                                     highlight_abnormal_date)
+
+class EnergyLostProcessor():
+    def __init__(self, plant_id, start_time, end_time, abnormal_threshold = 0.92, enable_cluster=True):
+
+        # configuration
+        self.plant_id = plant_id
+        self.start_time = start_time
+        self.end_time = end_time
+        self.abnormal_threshold = abnormal_threshold
+        self.enable_cluster = enable_cluster
+
+        self.irr_table: pd.DataFrame = None # {date -> irr}
+
+        # clustrering
+        self.plant_model = None
+        self.inv_clusters = []
+        self._cluster_processsors: list(ClusterProcessor) = [] 
+
+        # preprocessed result 
+        self.inv_date_energy: pd.DataFrame = None # {(inv_id, date) -> energy}
+        self.inv_date_compensated: pd.DataFrame = None # {(inv_id, date) -> is compensated or not}
+
+        # first normalization result
+        self.pr_crs_inv_matrix: pd.DataFrame = None # {(inv_id, date) -> 1 dimension normalized PR value}
+        
+        # second normalization result 
+        self.pr_crs_inv_matrix_2: pd.DataFrame = None # {(inv_id, date) -> 2 dimension normalized PR value}
+        
+        # plant_overview by date
+        # self.plant_overview_matrix: pd.DataFrame = None # {(plant_id, date) -> overview results}
+        
+        # alert analysis related
+        self.abnormal_highlight: pd.DataFrame = None # {(inv_id, date) -> 1 if abnormal else 0}
+        self.alert_map: dict = None # dict of inv_id -> list[Alert]
+        self.loss_matrix: pd.DataFrame = None # {(inv_id, date) -> Energy Lost}
+        self.lost_summary:dict = None #
+
+    def _inv_preprocess_before_sampling(self, df):
+        # ensure keep the history energy will only be kept the afternoon energy. 
+        # if there are some data lost in the date, will treat the day is wrong date. 
+        # preprocessing before resampling
+        df = df.copy()
+        df['time_last'] = df.index
+
+        # df[KEY.ENERGY_ACC_HISTORY] = df.apply(lambda row: row[KEY.ENERGY_ACC_HISTORY] if row['time_l'].hour >= 17 else np.nan, axis=1)
+        # df[KEY.ENERGY_ACC_DAILY] = df.apply(lambda row: row[KEY.ENERGY_ACC_DAILY] if row['time_l'].hour >= 17 else np.nan, axis=1)
+        # df.drop(columns='time_l')
+        return df
+
+    def _inv_preprocess_remove_extreme(self, df, ref_capacity):
+        # remove extreme value
+        df = df.copy()
+        threshold = ref_capacity * 12 
+
+        def __clean_history(history_series):
+            ret = history_series.copy()
+            pre_idx = 0
+            pre_history = history_series.iloc[0]  
+            for idx in range(1, len(history_series.index)):
+                cur_history = history_series.iloc[idx]
+                diff = cur_history - pre_history
+                gap = idx - pre_idx 
+                if diff > (threshold * gap):
+                    # clean the wrong history data. 
+                    ret.iloc[idx] = np.nan
+                else:
+                    pre_idx = idx
+                    pre_history = cur_history
+            return ret
+
+        df[KEY.ENERGY_ACC_HISTORY] = __clean_history(df[KEY.ENERGY_ACC_HISTORY])
+
+        df[KEY.ENERGY_ACC_DAILY] = df[KEY.ENERGY_ACC_DAILY].apply(lambda x: x if 0 < x < threshold else np.nan) 
+        df[KEY.ENERGY_ACC_DAILY] = df.apply(lambda row: row[KEY.ENERGY_ACC_DAILY] if (not np.isnan(row[KEY.ENERGY_ACC_HISTORY])) else np.nan, axis=1)
+        df[KEY.ENERGY_ACC_HISTORY] = df.apply(lambda row: row[KEY.ENERGY_ACC_HISTORY] if (not np.isnan(row[KEY.ENERGY_ACC_DAILY])) else np.nan, axis=1)
+
+        # trim the date that data not available after afternoon
+        df[KEY.ENERGY_ACC_HISTORY] = df.apply(lambda row: row[KEY.ENERGY_ACC_HISTORY] if row['time_last'].hour >= 17 else np.nan, axis=1)
+        df[KEY.ENERGY_ACC_DAILY] = df.apply(lambda row: row[KEY.ENERGY_ACC_DAILY] if row['time_last'].hour >= 17 else np.nan, axis=1)
+
+        return df
+
+    def _inv_preprocess_energy_compensate(self, df):
+        df = df.copy()
+        # assert(df.count() == irr_table.count())
+        # based on the irr distribution to fill the energy generation gap. 
+        df['irr'] = self.irr_table['irr']
+        df['compensated'] = False # by default all are not compensated.
+
+        # run thet energy compensation logic
+        history_series = df[KEY.ENERGY_ACC_HISTORY]
+        daily_series = df[KEY.ENERGY_ACC_DAILY]
+        df['history_energy_origin'] = history_series.copy()
+        df['daily_energy_origin'] = daily_series.copy()
+
+        pre_idx = 0
+        pre_history = history_series.iloc[0]  
+        for idx in range(1, len(history_series.index)):
+            cur_history = history_series.iloc[idx]
+            if np.isnan(cur_history): 
+                # missing value
+                continue
+            
+            if idx - pre_idx == 1: 
+                pre_idx = idx 
+                pre_history = cur_history 
+                continue
+
+            # need to compensate 
+            energy_gap = max(0, cur_history - pre_history - daily_series.iloc[idx])
+
+            # -- do the energy compensating ...
+
+            # get the irr ratio 
+            irr_slice = df['irr'][pre_idx+1:idx]
+            irr_ratio = irr_slice / irr_slice.sum() 
+
+            for m in range(len(irr_ratio.index)):
+                it = pre_idx + 1 + m
+                miss_daily_energy = energy_gap * irr_ratio[m]
+                row_indexer = history_series.index[it]
+                df.loc[row_indexer, KEY.ENERGY_ACC_HISTORY] = pre_history + miss_daily_energy
+                df.loc[row_indexer, KEY.ENERGY_ACC_DAILY] = miss_daily_energy
+                df.loc[row_indexer, 'compensated'] = True 
+            
+            pre_idx = idx
+            pre_history = cur_history 
+        return df
+
+    def _split_by_device_id(self, df):
+        """ return dict of DataFrame by DeviceID """
+        ret = {} # dict of DataFrame
+        gp = df.groupby("deviceID")
+        # return gp
+
+        for gid in gp.groups:
+            ret[gid] = gp.get_group(gid)
+        return ret
+
+    def _merge_by_interval(self, df, interval_min=60):
+        """
+            @param df: the dataframe for single inverter. ordered by time ASC. 
+            @param interval_min: the time interval to be merged.  
+        """
+        # get the aggregation methods. find the column co-exist in AGGREGATE_FUNC_MAP
+        columns = df.columns 
+
+        keys = AGGREGATE_FUNC_MAP.keys()
+        agg_map = {k: AGGREGATE_FUNC_MAP[k] for k in columns if k in keys}
+        agg_map['time_last'] = 'last'
+        
+        ret = df.resample(f"{interval_min}T").agg(agg_map)
+        return ret
+
+    def data_preprocess_daily(self, df: pd.DataFrame):
+        """
+            @param: df: original dataframe of time series data
+        """
+        plant_model = self.plant_model
+
+        ret = {} # dict of dataframe
+        dfgb = self._split_by_device_id(df)
+
+        for inv_id, df_inv in dfgb.items():
+            
+            df_inv = self._inv_preprocess_before_sampling(df_inv)
+
+            df_ret = self._merge_by_interval(df_inv, 1440)
+            
+            ref_capacity = plant_model.get_inverter_capacity(inv_id)
+            df_ret = self._inv_preprocess_remove_extreme(df_ret, ref_capacity)
+            df_ret = self._inv_preprocess_energy_compensate(df_ret)
+            
+            # # second round to prevent wrong data. 
+            # df_ret = self._inv_preprocess_remove_extreme(df_ret, ref_capacity)
+            # df_ret = self._inv_preprocess_energy_compensate(df_ret)
+
+            ret[inv_id] = df_ret    
+
+        return ret
+
+    def build_inv_daily_energy(self, origin_df: pd.DataFrame) -> pd.DataFrame: 
+        # build {(inv, date) -> energy} matrix
+        # df_preprocess = data_preprocess(origin_df, 1440)
+
+        df_preprocess = self.data_preprocess_daily(origin_df)
+
+        energy_series = {}
+        compensated_series = {}
+        for inv_id, inv_df in df_preprocess.items():
+            energy_series[inv_id] = inv_df[KEY.ENERGY_ACC_DAILY]
+            compensated_series[inv_id] = inv_df['compensated']
+            
+        self.inv_date_energy = pd.DataFrame(energy_series).fillna(0)
+        self.inv_date_compensated = pd.DataFrame(compensated_series)
+
+        return self.inv_date_energy
+    
+    def calculate_prediction_result(self, inv_date_energy: pd.DataFrame, inv_date_compensated: pd.DataFrame):
+        """
+            @param inv_date_energy: the energy dataframe.
+            @param inv_date_compensated: the compensated dataframe.
+            use the inv_date_energy and irr_table to calculate the prediction result.
+        """
+        
+    def process(self):
+        """
+            process a single plant, produce the analysis result.  
+            @param plant_id: ID of the plant to process.
+            @param start_time: the data starting time
+            @export_folder: (Optional) if the export_folder is defined, the result will be writing out to the folder.
+        """
+
+        print(f" -------------- start: {self.plant_id} ------------------")
+        timestamp = int(time.time())
+        
+        # get the plant_model from postgres_db
+        self.plant_model = build_plant_model(self.plant_id)
+        self.irr_table = query_daily_irr_by_plant_id(self.plant_id, self.start_time, self.end_time)
+
+        # query the raw data from timestream. 
+        original_data = query_inv_data(columns=[KEY.PLANT_ID, 
+                                              KEY.INV_ID, 
+                                              KEY.ENERGY_ACC_DAILY,
+                                              KEY.ENERGY_ACC_HISTORY],
+                                    objectIDs=[self.plant_id], # specific plant
+                                    deviceIDs=[], # all inverters
+                                    start_time = self.start_time, 
+                                    end_time = self.end_time, 
+                                    limited_count = None)
+        # original_data.to_excel(f"data/{self.plant_id}_origin_2.xlsx")
+        # ------ original data ------
+        # get the daily energy generation maps in data frame. 
+        print("----- Original Daily Energy Generation ----")
+        self.build_inv_daily_energy(original_data)
+
+        # # ------ handle the wrong 2022 8/12-8/16 data
+        # remove_daily_energy_by_date_range(self.inv_date_energy, '2022-08-12', '2022-08-16')
+
+        # ------ inverter clustering ----- 
+
+        if self.enable_cluster:
+            self.inv_clusters = self.plant_model.get_inverter_id_cluster()
+        else:
+            # don't do the clustering. fallback to single cluster.
+            self.inv_clusters = {"ALL": self.plant_model.get_inverter_ids()}
+
+        # process all the clusters
+        for cluster_param, inv_cluster in self.inv_clusters.items():
+            # slice the data by inverter ids
+            print(f"---------- clustering -----------")
+            print(f"##### {cluster_param} -> {inv_cluster} #####")
+            energy_df = self.inv_date_energy[inv_cluster]
+            proc = ClusterProcessor(self, inv_cluster, energy_df) 
+            proc.process() 
+            self._cluster_processsors.append(proc) 
+
+            
+        # ------ merge the result ------ 
+        for cl_proc in self._cluster_processsors:
+            self.merge_cluster_result(cl_proc)
+        
+        # self.build_plant_overview()
+        # ----- finalize ------
+        print(f" -------------- end: {self.plant_id} ------------------")
+        print("result:", self.lost_summary)
+
+    def rename_result_columns(self): 
+        # preprocessed result
+        name_map = self.plant_model.get_inverter_repr_name_mapping()
+
+        # data frame renaming
+        self.inv_date_energy.rename(columns = name_map, inplace = True)
+        self.pr_crs_inv_matrix.rename(columns = name_map, inplace = True)
+        self.pr_crs_inv_matrix_2.rename(columns = name_map, inplace = True)
+        self.abnormal_highlight.rename(columns = name_map, inplace = True)
+        self.loss_matrix.rename(columns = name_map, inplace = True)
+        self.inv_date_compensated.rename(columns = name_map, inplace = True)
+        
+        # dict renaming
+        self.alert_map = {name_map[key]:value for (key, value) in self.alert_map.items()}
+
+    def update_result_to_db(self):
+        print(f"#### start update result to db {self.plant_id} ####")
+        
+        # tb_name_generation = f'{self.plant_id}_EnergyGeneration'
+        # tb_name_loss = f'{self.plant_id}_EnergyLoss'
+        # tb_name_pr_crs_inv = f'{self.plant_id}_PR_CrossInv'
+        # tb_name_pr_irr = f'{self.plant_id}_PR_Irr'
+
+        # upsert_table_by_analaysis_table(tb_name_generation, self.inv_date_energy)
+        # upsert_table_by_analaysis_table(tb_name_loss,self.loss_matrix)
+        # upsert_table_by_analaysis_table(tb_name_pr_crs_inv, self.pr_crs_inv_matrix)
+        self.build_plant_overview()
+        upsert_table_of_plant_overview(self.plant_overview_matrix)
+
+    def export_result(self, export_folder):
+
+        # def __get_compensated_section(compensted_series):
+        #     sections = []
+        #     for 
+        # ============ writing results to external excel ===========
+        writer = DataWriter(export_folder, self.plant_id)
+        print(f"#### start drawing {self.plant_id} ####")
+        print("----- Original Daily Energy Generation ----")
+
+        y_max = min(self.plant_model.capacity / self.plant_model.get_inverter_count() * 10,  self.inv_date_energy.max().max())
+        self.inv_date_energy.plot(figsize=(20,10), ylim=[0, y_max], title= "Daily Energy Generation")
+        writer.write_plt("1.Daily_Energy_Generation")
+        # self.inv_date_energy.plot(figsize=(20,10), subplots=True, ylim=[0, y_max], title= "Daily Energy Generation")
+        # writer.write_plt("Original Subplot")
+
+        writer.write_dataframe(self.inv_date_energy, "Original")
+
+        print("----- Daily Energy Generation 1dim - Normalized by cross-inverter ----")
+        self.pr_crs_inv_matrix.plot(drawstyle='steps', figsize=(20,10), ylim=[0, 1.2], title="PR - cross-inverter")
+        
+        writer.write_plt("2.PR_Cross_Inverter")
+        writer.write_dataframe(self.pr_crs_inv_matrix, "PR_crs_inv")
+
+        # split plots
+        self.pr_crs_inv_matrix.plot(drawstyle='steps', figsize=(20,30), subplots=True, ylim=[0, 1.2])
+        writer.write_plt("3.PR_Cross_Inverter_Subplots")
+
+        print("----- Daily Energy Generation 2dim - Normalized by cross-inverter & history generation ----")
+        writer.write_dataframe(self.pr_crs_inv_matrix_2, "PR_crs_inv_by_history")
+
+        # all merged
+        self.pr_crs_inv_matrix_2.plot(drawstyle='steps', figsize=(20,10), ylim=[0, 1.2], title="PR - cross-inverter & history")
+        writer.write_plt("4.PR_Cross_Inverter_History")
+
+
+
+        # print("----- Abnormal Highlight ----")
+        # self.abnormal_highlight.plot(figsize=(20,30), subplots=True, title=f"Abnormal Highlight - {str(self.abnormal_threshold)}" )
+        # writer.write_plt("Abnormal_Highlight")
+
+        print("----- Daily Energy Loss Estimation ----")
+        writer.write_dataframe(self.loss_matrix, "Loss Estimation")
+
+        ylimit = self.loss_matrix.max().max() * 1.1
+        self.loss_matrix.plot(kind='area', stacked=False, figsize=(20,15), subplots=True, ylim=[0, ylimit], title="Daily Energy Loss Estimation")
+        writer.write_plt("5.Lost_Estimation_Subplots")
+
+        self.loss_matrix.plot(kind='area', stacked=True, figsize=(20,10),  title="Daily Energy Loss Estimation")
+        writer.write_plt("6.Lost_Estimation_Stacked")
+
+        writer.close()
+        # ============ writer closed ==============
+
+    def merge_cluster_result(self, cl_proc:ClusterProcessor):
+        def _merge_df(df1, df2):
+            if df2 is None:
+                # do nothing
+                return df1
+
+            if df1 is None:
+                return df2.copy() 
+            return pd.concat([df1, df2], axis=1)
+
+        def _merge_dict(d1, d2):
+            if not d1: 
+                return d2.copy()
+            return {**d1, **d2}
+
+        self.pr_crs_inv_matrix = _merge_df(self.pr_crs_inv_matrix, cl_proc.pr_crs_inv_matrix)
+        self.pr_crs_inv_matrix_2 = _merge_df(self.pr_crs_inv_matrix_2, cl_proc.pr_crs_inv_matrix_2)
+        self.abnormal_highlight = _merge_df(self.abnormal_highlight, cl_proc.abnormal_highlight)
+        self.alert_map = _merge_dict(self.alert_map, cl_proc.alert_map)
+        self.loss_matrix = _merge_df(self.loss_matrix, cl_proc.loss_matrix)
+
+        # merge lost summary
+        # - generation
+        if self.lost_summary:
+            gen = self.lost_summary['generate'] + cl_proc.lost_summary['generate']
+            loss = self.lost_summary['loss'] + cl_proc.lost_summary['loss']
+            self.lost_summary['generate'] = gen 
+            self.lost_summary['loss'] = loss
+            self.lost_summary['loss_ratio'] = loss / (loss + gen)
+        else:
+            self.lost_summary = cl_proc.lost_summary.copy()
+
+    def build_plant_overview(self):
+        """
+            "time" date NOT NULL,
+            "plant_id" character varying(10) COLLATE pg_catalog."default",
+            "kwp" double precision, 
+            "irr" double precision,
+            "generation" double precision,
+            "generation_per_kwp" double precision,
+            "loss" double precision,
+            "loss_per_kwp" double precision,
+            "loss_ratio" double precision,
+            "is_compensated" boolean,
+        """
+        plant_overview = pd.DataFrame(index=self.inv_date_energy.index)
+        plant_overview['time'] = plant_overview.index
+        plant_overview['id'] = self.plant_id
+        # plant_overview['kwp'] = self.plant_model.capacity
+        plant_overview['irr'] = self.irr_table['irr'] / 1000.0
+        plant_overview['generation'] = self.inv_date_energy.sum(axis=1)
+        # plant_overview['generation_per_kwp'] = plant_overview['generation'] / plant_overview['kwp']
+        plant_overview['loss'] = self.loss_matrix.sum(axis=1)
+        # plant_overview['loss_per_kwp'] = plant_overview['loss'] / plant_overview['kwp']
+        plant_overview['pr'] = plant_overview['generation'] / (plant_overview['loss'] + plant_overview['generation'])
+        plant_overview['is_compensated'] = self.inv_date_compensated.any(axis=1)
+        plant_overview["generation_inv_detail"] = self.inv_date_energy.apply(lambda row: row.to_json(), axis=1)
+        plant_overview['loss_inv_detail'] = self.loss_matrix.apply(lambda row: row.to_json(), axis=1)
+        plant_overview['pr_crs_inv_detail'] = self.pr_crs_inv_matrix.apply(lambda row: row.to_json(), axis=1)
+        plant_overview['is_compensated_inv_detail'] = self.inv_date_compensated.apply(lambda row: row.to_json(), axis=1)
+
+        self.plant_overview_matrix = plant_overview
+
+
+class ClusterProcessor():
+    def __init__(self, parent:EnergyLostProcessor, inv_ids, energy_df:pd.DataFrame):
+
+        # configuration
+        self.parent = parent
+        self.plant_id = parent.plant_id
+        self.plant_model = parent.plant_model
+
+        self.inv_ids = inv_ids
+        self.abnormal_threshold = self.parent.abnormal_threshold
+
+        # preprocessed result 
+        self.inv_date_energy = energy_df
+        
+        # normalized by inverter capacity
+        self.inv_capacity_series: pd.Series = None # {inv_id -> inverter capacity} 
+        self.inv_capacity_ratio_series: pd.Series = None # {inv_id -> inverter norm ratio, based on capacity}
+        self.inv_date_energy_adjusted: pd.DataFrame = None # daily_energy matrix adjusted by the capacity ratio 
+
+        # first normalization result
+        self.ref_energy_per_date: pd.Series = None # {date -> reference_energy for PR=1.0}
+        self.pr_crs_inv_matrix: pd.DataFrame = None # {(inv_id, date) -> 1 dimension normalized PR value}
+        
+        # second normalization result 
+        self.ref_energy_per_inv: pd.Series = None # {inv_id -> reference_energy for PR=1.0}
+        self.pr_crs_inv_matrix_2: pd.DataFrame = None # {(inv_id, date) -> 2 dimension normalized PR value}
+        
+        # alert analysis related
+        self.abnormal_highlight: pd.DataFrame = None # {(inv_id, date) -> 1 if abnormal else 0}
+        self.alert_map: dict = None # dict of inv_id -> list[Alert]
+        self.loss_matrix: pd.DataFrame = None # {(inv_id, date) -> Energy Lost}
+        self.lost_summary:dict = None #
+
+    def _adjust_by_capacity(self):
+        """
+            adjust the energy generation by capacity ratio. 
+            use the max capacity as the reference, adjust other ones.
+        """
+        assert(self.plant_model)
+        inv_capacity_dict = {
+                                inv_id: self.plant_model.get_inverter_by_id(inv_id).capacity \
+                                for inv_id in self.inv_date_energy.columns   
+                            }
+        self.inv_capacity_series = pd.Series(inv_capacity_dict)
+        self.inv_capacity_ratio_series = self.inv_capacity_series / self.inv_capacity_series.max()
+        self.inv_date_energy_adjusted = self.inv_date_energy.divide(self.inv_capacity_ratio_series, axis=1)
+
+    # def _calculate_refer_energy(self):
+
+    def _calculate_pr_crs_inv(self):
+        self.ref_energy_per_date = self.inv_date_energy_adjusted.agg(cal_good_reference_mean, axis=1)
+        self.pr_crs_inv_matrix = self.inv_date_energy_adjusted.divide(self.ref_energy_per_date, axis=0).fillna(0)
+        # filterout the noise date that the irr is not good.
+        self.pr_crs_inv_matrix = filter_low_irr(self.pr_crs_inv_matrix, self.parent.irr_table, 2500)
+        self.pr_crs_inv_matrix = trim_extreme_outlier(self.pr_crs_inv_matrix)
+
+        # ------ second normalization ------
+        self.ref_energy_per_inv = self.pr_crs_inv_matrix.agg(cal_good_reference_mean, axis=0)
+        self.pr_crs_inv_matrix_2 = self.pr_crs_inv_matrix.divide(self.ref_energy_per_inv, axis=1).fillna(0)
+
+    def _calculate_abnormal_highlight(self):
+        # ------ get the abnormal highlight segments ------ 
+        self.abnormal_highlight = highlight_abnormal_date(self.pr_crs_inv_matrix, threshold=self.abnormal_threshold)
+
+    def _calculate_energy_lost(self):
+        """
+            # original energy dataframe: cross_df
+            # normalized 1-dim energy reference: ref_energy_per_day
+            # normalized 1-dim energy: norm_df
+            # abnormal highlight: abnormal_highlght
+            # potential lost energy = abnormal_highlight(x) * (1-norm_df(x)) * ref_energy_per_day
+
+            # when the energy generation is non-zero: 
+            # - calcuate the lost ratio * ideal energy generation (100% case)
+            # when the energy geneartion is zero: 
+            # - ref to other inv average, and get the reasonable ratio generation
+            # when all energy generation is zero:
+            # - TODO: 
+            #  1. refer to regional-closed plants to calculate the energy lost. 
+            #  2. use the irr data to choose similar date to calculate the energy lost. 
+        """
+
+        pr_matrix = self.pr_crs_inv_matrix
+        loss_matrix = pd.DataFrame().reindex_like(pr_matrix).fillna(0)
+
+        for date in loss_matrix.index: 
+            for col in loss_matrix.columns: 
+                # ignore normal dates
+                if not self.abnormal_highlight.at[date, col]:
+                    loss = 0
+                # elif norm_df_2.at[date, col] != 0:
+                #     # when the energy generation is non-zero: 
+                #     # r1 = norm_df.at[date, col]
+                #     # r2 = norm_df_2.at[date, col]
+                #     # ref_energy = ref_energy_per_day[date]
+                #     lost = (ref_energy_per_inv[col] - norm_df.at[date, col]) * ref_energy_per_day[date]
+                # elif norm_df_2.at[date, col] == 0:
+                #     # when the energy geneartion is zero: 
+                #     lost = ref_energy_per_inv[col] * ref_energy_per_day[date]
+                else:
+                    loss_ratio = 1.0 - self.pr_crs_inv_matrix.at[date, col]
+                    daily_ref_energy = self.ref_energy_per_date[date]
+                    adjust_ratio = self.inv_capacity_ratio_series[col]
+
+                    loss = max(0,  loss_ratio * daily_ref_energy * adjust_ratio)
+                
+                # TODO: all zero case ... 
+
+                loss_matrix.at[date, col] = loss
+                # # - calcuate the lost ratio * ideal energy generation (100% case)
+                # if norm_df_2.at(date, col) != 0: 
+                #     lost_
+        self.loss_matrix = loss_matrix
+
+        # self.loss_matrix = cal_energy_lost(self.pr_crs_inv_matrix, self.abnormal_highlight, self.ref_energy_per_inv, self.ref_energy_per_date)
+
+    def process(self):
+        """
+            process a single plant, produce the analysis result.  
+            @param plant_id: ID of the plant to process.
+            @param start_time: the data starting time
+            @export_folder: (Optional) if the export_folder is defined, the result will be writing out to the folder.
+        """
+
+        # ------ adjust energy generation by capacity ratio 
+        print("----- Daily Energy Generation - adjust by capacity ... -----")
+        self._adjust_by_capacity()
+
+        # ------ first dimension normalization ------
+        print("----- Daily Energy Generation  - Normalized by cross-inverter ----")
+        self._calculate_pr_crs_inv()
+        
+        print("----- Abnormal Highlight ----")
+        self._calculate_abnormal_highlight()
+
+        # ------ calculate the energy lost ------
+        print("----- Daily Energy Loss Estimation ----")        
+        self._calculate_energy_lost()
+
+        # ------ generate the alerts lost summary ------
+        print("----- Alert & Energy Loss Summary ----")
+        self.alert_map = alerts_generations(self.loss_matrix)
+        self.lost_summary = summary_alerts_lost(self.inv_date_energy, self.alert_map, self.plant_id)
+        print("result:", self.lost_summary)
+
