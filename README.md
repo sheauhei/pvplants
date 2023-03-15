@@ -1,1 +1,27986 @@
-# pvplants
+
+#### AmpecoNotification
+
+Source：
+
+Description：Ampeco通知資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>AmpecoNotification
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>notificationTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>通知日時
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>notificationType
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>通知類別
+   </td>
+   <td>"AuthorizationNotification" | "BootNotification" | "ChargePointChangedNotification" | "ChargePointSyncConfigurationNotification" | "CircuitConsumptionNotification" | "DiagnosticsStatusNotification" | "HardwareStatusNotification" | "LocationChangedNotification" | "NetworkStatusNotification" | "SecurityEventNotification" | "SessionMeterValuesNotification" | "SessionStartStopNotification" | "SessionUpdateNotification" | "UserChangedNotification" | "SubOperatorChangedNotification" | "TariffChangedNotification" | "user.subscriptionChanged" | "ReservationChangedNotification" | "PaymentMethodChangedNotification" | "PartnerInviteChangedNotification" | "reservation.changed" | "user.paymentMethod.changed" | "partnerInvite.changed" | "roamingPlatform.changed" | "partner.changed" | "transaction.changed"
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>notificationData
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>通知資料
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### BillObjectMapping(改SolarPowerNumber)
+
+Source：
+
+Description：
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadBill
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumber
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>電號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “BillMappingObject”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>generatingSet
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>機組
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ChargePoint
+
+Data Import：無​​
+
+Description：充電樁資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ChargePoint
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>chargePointID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco充電樁ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(250)
+   </td>
+   <td>充電樁名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>networkID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(250)
+   </td>
+   <td>充電樁id
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>networkProtocol
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>OCPP通訊協定版本
+   </td>
+   <td>ocpp 1.5 | ocpp 1.6 | ocpp 2.0.1
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>status
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>Ampeco充電樁狀態
+   </td>
+   <td>demo | disabled | active | out of order
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>locationID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco充電站id
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>evseProps
+   </td>
+   <td>1..1
+   </td>
+   <td>[AWSJSON!]
+   </td>
+   <td>
+   </td>
+   <td>jsonb[]
+   </td>
+   <td>充電設備資料
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-evseID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>json - int
+   </td>
+   <td>Ampeco EVSE Id
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>accessType
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>充電樁類型
+   </td>
+   <td>private | public | personal
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>model
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(DeviceDefinition)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>充電樁裝置定義
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>phases
+   </td>
+   <td>0..1
+   </td>
+   <td>enum
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>相數
+   </td>
+   <td>1 | 3
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ChargingStation
+
+Data Import：無​​
+
+Description：充電樁場資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ChargingStation
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>chargingStationID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>充電樁場編號
+   </td>
+   <td>同 objectRef
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “ChargingStation”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>充電樁場名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Object)&lt;→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>plugType
+   </td>
+   <td>1..*
+   </td>
+   <td>[AWSJSON!]
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>充電頭
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>充電頭類型
+   </td>
+   <td>J1772 | Mennekes | GB/T | CCS1 | CHAdeMO | CCS2 | GB\T | Tesla
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-count
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>充電頭數量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-model
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(DeviceDefinition)→ 
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>充電頭裝置定義
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-plugPortfolio
+   </td>
+   <td>0..1
+   </td>
+   <td>BackBone(Portfolio)
+   </td>
+   <td>
+   </td>
+   <td>json - object
+   </td>
+   <td>充電頭履歷
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CidFilter
+
+**Description:** O&M 2.0 平台中，CID 表單的個人篩選條件
+
+**Source:** O&M 2.0 平台介面輸入
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CidFilter
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFilterID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>CID個人篩選條件編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFilterName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>CID個人篩選條件暱稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFilterContent
+   </td>
+   <td>0..1
+   </td>
+   <td>ASWJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>個人篩選條件內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(User)→
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>使用者識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CidForm
+
+**Description:** O&M 2.0 平台中，CID 表單
+
+**Source:** O&M 2.0 平台介面輸入
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CidForm
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFormID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>單號
+   </td>
+   <td>編碼規則："CD" + 6碼流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>status
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>狀態
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='cidStatus') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>發生日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>結案日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>encrypt
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>是否加密
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>level
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>重要性
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='cidLevel') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>source
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>來源
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='cidSource') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userInCharge
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(User)→
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>負責人
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>problemCategory
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>問題分類
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='cidProblemCategory') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>errorCode
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>Error Code
+   </td>
+   <td>並非指的是硬體裝置的 Error Code，是在 CID 層級定義的
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topic
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>主題簡述
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>possibleRootCause
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>可能根因
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>rootCause
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>實際根因
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>currentProgress
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>目前分析進度
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>solution
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>實施對策
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logbook
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>建議說明/分析紀錄
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>askOmFlag
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>委託維運處理狀態
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='cidAskOmFlag') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>askOmLogs
+   </td>
+   <td>0..*
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>委託維運歷程
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- askDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>委託日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- askReason
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>委託維運內容說明
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- askUserID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>發起人ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- takeDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>OM單位接收的日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>files
+   </td>
+   <td>0..*
+   </td>
+   <td>BackBone([FileProps])
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>附件
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ocaps
+   </td>
+   <td>0..*
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>OCAP/SOP
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- ocapID
+   </td>
+   <td>0..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>OCAP 編號
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='ocap') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- ocapRefDate
+   </td>
+   <td>0..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>在 CID 單中加入此筆 OCAP 的日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objects
+   </td>
+   <td>0..*
+   </td>
+   <td>[Reference(Object)]→
+<p>
+或 [String]
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>相關案場
+   </td>
+   <td>存放內容參考：
+<p>
+["T1234", "T2345"]
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertLogs
+   </td>
+   <td>0..*
+   </td>
+   <td>[Reference(PVAlertLog)]→
+<p>
+或 [Int]
+   </td>
+   <td>
+   </td>
+   <td>int[]
+   </td>
+   <td>相關警報Log
+   </td>
+   <td>存放內容參考：
+<p>
+[1, 2, 3]
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CidFormHistory
+
+**Description:** O&M 2.0 平台中，CID 表單異動歷程 (用於查詢使用者操作追蹤)
+
+**Source:** O&M 2.0 平台異動 CID 表單資料時，同步記錄
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CidFormHistory
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFormHistoryID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>流水號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFormID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>CID表單單號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFormContent
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>CID表單內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crUser
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(User)→
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>建立人員識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>建立日期時間
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CidPhrase
+
+**Description:** O&M 2.0 平台中，CID 表單的片語
+
+**Source:** O&M 2.0 平台介面輸入
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CidPhrase
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidPhraseID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>CID片語編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>problemCategory
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>CID表單 - 問題分類
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>errorCode
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>CID表單 - Error Code
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kind
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(30)
+   </td>
+   <td>片語類型
+   </td>
+   <td>topic | rootCause | solution
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>phraseContent
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>片語內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ClientDevice
+
+Data Import：依據監控2.0 - RfdmeMonitor 資料庫(測試區)中的 ProjectDeviceInfo 資料進行匯入
+
+Description：邊緣端ClientDevice資訊 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ClientDevice
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>附屬裝置編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “ClientDevice”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object)→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>裝置監控之案場編號
+   </td>
+   <td>說明此 ClientDevice 監控哪一個案場的資料
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>locationObjectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>裝置實際放置案場編號
+   </td>
+   <td>說明此 ClientDevice 實際放置在哪一個案場
+<p>
+當需要提供案場配置資料時，以此欄位組合實際配置情況
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDevicePortfolio
+   </td>
+   <td>0..1
+   </td>
+   <td>Backbone(Portfolio)
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>附屬裝置履歷
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceDefinitionRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(DeviceDefinition)→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>附屬裝置定義參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>seq
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>附屬裝置序號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>modbusAddress
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>附屬裝置連線埠號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>modbusTCPIP
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>附屬裝置連線IP位址
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>comPort
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td><strong>待 Roach 補充</strong>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dreamsFlag
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td><strong>待 Roach 補充</strong>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>chargePointRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(ChargePoint)
+   </td>
+   <td>
+   </td>
+   <td>int[]
+   </td>
+   <td>充電樁參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+##### ClientDevice - deviceProps  - circuit
+
+Description：電路裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>circuit
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>circuitID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco電路ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(250)
+   </td>
+   <td>Ampeco電路名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>phases
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>char(1)
+   </td>
+   <td>電路相數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxCurrent
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>numeric(8,1)
+   </td>
+   <td>每相的最大電流
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minChargePointCurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>numeric(8,1)
+   </td>
+   <td>充電樁最低可控電流
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>setSessionLimitToZeroOnIdle
+   </td>
+   <td>0..1
+   </td>
+   <td>Bool
+   </td>
+   <td>boolean
+   </td>
+   <td>設定連線限制
+   </td>
+   <td>若啟用，當充電樁為Idle狀態時，將session限制為0
+   </td>
+  </tr>
+</table>
+
+
+
+#### Company
+
+Description：公司資料結構。 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Company
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>companyID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>公司編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Company”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>公司名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>address
+   </td>
+   <td>0..1
+   </td>
+   <td>Address
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>公司地址
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>contact
+   </td>
+   <td>0..1
+   </td>
+   <td>ContactPoint
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>公司聯絡人
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>agent
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>公司代理人
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>uniformNumber
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(8)
+   </td>
+   <td>公司統一編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(1)
+   </td>
+   <td>資料狀態
+   </td>
+   <td>Y = 使用
+<p>
+D = 刪除
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vppRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([TopologyVPPGrid])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>vpp 參考
+   </td>
+   <td>目前只EMS使用
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>code
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>RD用公司代碼
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CompanyHoliday
+
+Description：公司休假資料
+
+Source：?
+
+Data Import：無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CompanyHoliday
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>companyHolidayID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>流水號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “CompanyHoliday”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>companyRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Company!)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>公司流水號
+   </td>
+   <td>對應 Company.companyID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>year
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(4)
+   </td>
+   <td>西元年
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>holiday
+   </td>
+   <td>0..*
+   </td>
+   <td>[String!]
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>放假日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CorrectionPower
+
+Description：5分鐘發電數據檔(粒度：案場)
+
+Source：將 CorrectionPowerDevice 進行加總
+
+Data Import：無
+
+Status：rfdme_asset = 完整資料，有排程持續更新
+
+              rfdme_asset_stg = 需要的時候從 rfdme_asset 搬移一份
+
+              rfdme_asset_dev = 需要的時候從 rfdme_asset 搬移一份，目前可能有前一個版本的資料混雜
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CorrectionPower
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “CorrectionPower”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 5 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>該 5 分鐘每 kWp 的發電功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerBillPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>該 5 分鐘累積發電量
+<p>
+(經電費單校正)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerBillKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>該 5 分鐘發電功率
+<p>
+(經電費單校正)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerBillSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>當日累積發電量
+<p>
+(經電費單校正)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>flag
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>資料處理狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>moduleType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>描述此筆記錄是使用哪一種元件的資料去計算
+   </td>
+   <td>dm | inv
+   </td>
+  </tr>
+</table>
+
+
+
+#### CorrectionPower15
+
+Description: 15分鐘發電數據檔
+
+Source:  將 CorrectionPower 進行加總，以每 15 分鐘為間隔，描述該案場的發電量
+
+Data Import：無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CorrectionPower15
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “CorrectionPower15”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>該 5 分鐘發電功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### CorrectionPowerDevice 
+
+Description：5分鐘發電數據檔(粒度：裝置)
+
+Source：週期性排程從 Kinesis 取得監控發電數據(數位電錶、逆變器)，進行 5 分鐘發電換算
+
+Data Import：無
+
+Status：rfdme_asset = 完整資料，有排程持續更新
+
+              rfdme_asset_stg = 需要的時候從 rfdme_asset 搬移一份
+
+              rfdme_asset_dev = 需要的時候從 rfdme_asset 搬移一份，目前可能有前一個版本的資料混雜
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CorrectionPowerDevice
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>裝置編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “CorrectionPowerDevice”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 5 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSatellitePerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>衛星轉發電 5 分鐘累積發電量
+   </td>
+   <td>用以校正監控值使用的衛星發電量
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSatelliteSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>衛星轉發電當日累積發電量
+   </td>
+   <td>用以校正監控值使用的衛星發電總量
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>flag
+   </td>
+   <td>0..1
+   </td>
+   <td>string
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>資料處理狀態
+   </td>
+   <td>資料狀態:SN, YI, ABN NV, NI, CSN
+   </td>
+  </tr>
+</table>
+
+
+
+#### DailyPower
+
+Description: 每日發電數據檔(粒度：案場)
+
+Source:  從 CorrectionPower 取該日最後一筆資料成為每日發電數據
+
+Data Import:  無
+
+Status：rfdme_asset = 完整資料，有排程持續更新
+
+              rfdme_asset_stg = 需要的時候從 rfdme_asset 搬移一份
+
+              rfdme_asset_dev = 需要的時候從 rfdme_asset 搬移一份
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>DailyPower
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dailyEnergy
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16,8)
+   </td>
+   <td>太陽能當日總發電量
+<p>
+(純監控計算)
+   </td>
+   <td>想表達實際上有發電賣給台電的發電量
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>correctDailyEnergy
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16,8)
+   </td>
+   <td>太陽能當日總發電量
+<p>
+(監控+衛星計算)
+   </td>
+   <td>理想上正常發電情況的發電量
+<p>
+(等同於 CorrectionPower 的最後一筆的數據)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>billCorrection
+<p>
+<strong>- 等待 Jerry 改程式後，再將欄位改為 NOT NULL</strong>
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>是否做電費單校正
+   </td>
+   <td>true = 已校正
+<p>
+false = 未校正
+   </td>
+  </tr>
+</table>
+
+
+
+#### DeviceDefinition
+
+Name：設備定義檔
+
+Description：描述邊緣端裝置定義（被EnergyStorageSystem、 ChargingStation、 ClientDevice參考）
+
+Source：Roach 手動更新或通知 DBA 更新
+
+Data Import：依據監控2.0 - RfdmeMonitor 資料庫(測試區)中的 ProjectDeviceInfo 資料進行匯入
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>DeviceDefinition
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceDefinitionID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>裝置定義編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “DeviceDefinition”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>modelNumber
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>裝置型號
+   </td>
+   <td>unique number given to each product made by computer hardware manufacturers
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>connectMode
+   </td>
+   <td>1.1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(25)
+   </td>
+   <td>附屬裝置連線模式
+   </td>
+   <td>此欄位值代表告知樹莓派要用哪種連線方式，來連線哪一家廠牌(哪一種)硬體
+<p>
+由工程師(江源)自行設定代碼，才可搭配實際情況使用
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>brandCompanyRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>裝置廠牌
+   </td>
+   <td>brand
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>firmware
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>裝置韌體版本
+   </td>
+   <td>“DEFAULT” is an option while you don’t notice what firmware is
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nodeProps
+   </td>
+   <td>0..1
+   </td>
+   <td>Backbone(NodeProps!)
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>裝置參數
+   </td>
+   <td>參考 NodeProps 定義
+<p>
+system = inv | irr | dm | temp | ess | evcs …
+<p>
+systemProps 參考下方 DeviceDefinition - nodeProps -systemProps 系列表格
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+##### DeviceDefinition - nodeProps - systemProps - inv
+
+Description：逆變器裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>inv
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+##### DeviceDefinition - nodeProps - systemProps - irr
+
+Description：日照計裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>irr
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sensitivity
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計靈敏度
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>impedance
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計阻抗
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>measuringRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計測量範圍
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>viewingField
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計視野
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>spectralRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計光譜範圍
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>operatingTempRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計操作溫度範圍
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>samplingRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Timing
+   </td>
+   <td>json - object
+   </td>
+   <td>日照計取樣頻率
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+##### DeviceDefinition - nodeProps - systemProps - dm
+
+Description：電錶裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>dm
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>電表類型
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sampling rate
+   </td>
+   <td>0..1
+   </td>
+   <td>Timing
+   </td>
+   <td>json - object
+   </td>
+   <td>取樣率
+   </td>
+   <td>點/秒
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>voltageMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>電壓量測精度
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>currentMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>電流量測精度
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>功率量測精度
+<p>
+( /kWh, kVARh, kVAh )
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>energyMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>電能量測精度
+<p>
+( /kWh, kVARh, kVAh )
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerFactorMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>功率因素量測精度
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>frequencyMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>頻率量測精度
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>totalHarmonicMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>總諧波量測精度
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>singleHarmonicMeasureAccuracy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>單次諧波量測精度
+   </td>
+   <td>單位：%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxInputPt1
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最高輸入-PT一次側
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minInputPt1
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最低輸入-PT一次側
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxInputPt2
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最高輸入-PT二次側
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minInputPt2
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最低輸入-PT二次側
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxInputCt1
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最高輸入-CT一次側
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minInputCt1
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最低輸入-CT一次側
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxInputCt2
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最高輸入-CT二次側
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minInputCt2
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最低輸入-CT二次側
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxInputFrequency
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最高輸入-頻率
+   </td>
+   <td>單位：Hz
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minInputFrequency
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>量測最低輸入-頻率
+   </td>
+   <td>單位：Hz
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxOperatingTemperature
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高工作溫度
+   </td>
+   <td>單位：攝氏_度
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minOperatingTemperature
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最低工作溫度
+   </td>
+   <td>單位：攝氏_度
+   </td>
+  </tr>
+</table>
+
+
+
+##### DeviceDefinition - nodeProps - systemProps - temp
+
+Description：溫度計裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>temp
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sensitivity
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>溫度計靈敏度
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>measuringRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>溫度計測量範圍
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>operatingTempRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>json - object
+   </td>
+   <td>溫度計操作溫度範圍
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+##### DeviceDefinition - nodeProps - systemProps - pcs
+
+Description：儲能裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ess
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>installedEnergy
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>電池電量
+   </td>
+   <td>單位：Wh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>capacity
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>額定容量
+   </td>
+   <td>單位：kW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cycleLife
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>循環壽命
+   </td>
+   <td>單位：次 (80% DOD)
+<p>
+循環幾次會降到 80% 的能力，可能 80% 的時候就會汰換
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>normalVoltage
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>額定電壓
+   </td>
+   <td>單位：Vdc
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>operatingVoltage
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>操作電壓範圍
+   </td>
+   <td>單位：Vdc
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>efficiency
+   </td>
+   <td>0..1
+   </td>
+   <td>Quantity
+   </td>
+   <td>json - object
+   </td>
+   <td>轉換效率
+   </td>
+   <td>單位：>%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>totalHarmonicDistortion
+   </td>
+   <td>0..1
+   </td>
+   <td>Quantity
+   </td>
+   <td>json - object
+   </td>
+   <td>電網電流諧波 \
+波形失真率(THD)
+   </td>
+   <td>單位：&lt;%
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ratedChargePower
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>額定充電功率
+   </td>
+   <td>單位：W 
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxChargePower
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高充電功率
+   </td>
+   <td>單位：W，視在功率
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ratedDischargePower
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>額定放電功率
+   </td>
+   <td>單位：W
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxDischargePower
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高放電功率
+   </td>
+   <td>單位：W，視在功率
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>peakDischargePower
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>峰值放電功率
+   </td>
+   <td>單位：W
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ratedDischargeCurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>額定放電電流
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxDischargeCurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高放電電流
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>peakDischargeCurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>峰值放電電流
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>controlPower
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>AC電壓
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+</table>
+
+
+
+##### DeviceDefinition - nodeProps - systemProps - evcs
+
+Description：充電樁裝置參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>evcs
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>phase
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>json - number
+   </td>
+   <td>相位
+   </td>
+   <td>e.g.1 - 單相3線，此欄位填 1
+<p>
+e.g.2 - 3相3線，此欄位填 3
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wire
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>json - number
+   </td>
+   <td>電線
+   </td>
+   <td>e.g.1 - 單相3線，此欄位填 3
+<p>
+e.g.2 - 3相3線，此欄位填 3
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxInputVoltAC
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高輸入電壓 (交流電)
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minInputVoltAC
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最低輸入電壓 (交流電)
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>outputVoltAC
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>輸出電壓 (交流電)
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxOutputVoltDC
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高輸出電壓 (直流電)
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minOutputVoltDC
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最低輸出電壓 (直流電)
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxOutputCurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高輸出電流
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minOutputCurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最低輸出電流
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minEffciency
+   </td>
+   <td>0..1
+   </td>
+   <td>Quantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最低轉換效率
+   </td>
+   <td>數值表示此項應 >= %
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>frequency
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>頻率
+   </td>
+   <td>單位：Hz
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userAuthMethod
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>使用者認證方式
+   </td>
+   <td>e.g. RFID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxOperatingTemperature
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最高工作溫度
+   </td>
+   <td>單位：攝氏_度
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minOperatingTemperature
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json - object
+   </td>
+   <td>最低工作溫度
+   </td>
+   <td>單位：攝氏_度
+   </td>
+  </tr>
+</table>
+
+
+
+#### DevicePendingList
+
+Description：需被校正處理的裝置監控值列表
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>DevicePendingList
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>id
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>裝置id
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>處理起始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>eTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>處理結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>0..1
+   </td>
+   <td>Bool
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>處理狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>energy_diff
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>監控端區間實際發電數值
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### EdgeCenterNode
+
+Data Import：依據監控2.0 - RfdmeMonitor 資料庫(測試區)中的 MonitorBoxInfo / NodeInfo / MonitorBoxNodeMapping 資料進行匯入
+
+Description：邊緣端中心節點。在微電系統，可看作監控箱，或是研華Logger。 如果object為儲能系統，則EdgeCenterNode為儲能的中心系統(包含控制與監控)。將取代ControlNode(coreDevice 樹莓派)。 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EdgeCenterNode
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodeID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>邊緣中心節點編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “EdgeCenterNode”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>邊緣節點名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeControllerRef
+   </td>
+   <td>1..*
+   </td>
+   <td>Reference([EdgeController!])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>邊緣中心節點內置主板
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodePortfolio
+   </td>
+   <td>0..1
+   </td>
+   <td>Backbone(Portfolio)→
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>邊緣中心節點履歷
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodeDefinition
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(DeviceDefinition)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>邊緣中心節點裝置定義
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### EdgeController
+
+Data Import：匯入 EdgeCenterNode 資料表時，再依據 NodeInfo 資料匯入
+
+Description：邊緣端中心節點內之監控/控制程式安裝位置 (即樹莓派或研華 logger)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EdgeController
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeControllerID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>邊緣控制器編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “EdgeController”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(EdgeCenterNode)&lt;→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>邊緣中心節點參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>seq
+   </td>
+   <td>1..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>子系統順序編號
+   </td>
+   <td>在同一個 EdgeCenterNode 中，子系統的優先順序編號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nodeProps
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJson
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>控制板的屬性(設定)
+   </td>
+   <td>提供 Edge 端開發者自行定義 edge 端程式所需的資訊
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>operateModel
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>phoneNumber
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### EnergyStorageSystem
+
+Data Import：轉入 Object 資料時，將屬於儲能型案場的部分轉入
+
+Description：儲能場資訊
+
+Schematic：
+
+
+
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image1.jpg "image_tooltip")
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>PK
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EnergyStorageSystem
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>energyStorageSystemID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>PK
+   </td>
+   <td>儲能場案場編號
+   </td>
+   <td>同 objectRef
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “EnergyStorageSystem”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>
+   </td>
+   <td>儲能場案場名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Object)&lt;→ 
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essPortfolio
+   </td>
+   <td>0..1
+   </td>
+   <td>BackBone(Portfolio)
+   </td>
+   <td>jsonb
+   </td>
+   <td>
+   </td>
+   <td>儲能場管理系統履歷
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essType
+   </td>
+   <td>1..*
+   </td>
+   <td>[AWSJSON!]
+   </td>
+   <td>jsonb
+   </td>
+   <td>
+   </td>
+   <td>儲能系統
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>json - string
+   </td>
+   <td>
+   </td>
+   <td>儲能系統類型
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+electrical | electochemical | mechanical | hybrid | thermal  \
+OR 
+<p>
+dReg | sReg
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-model
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(DeviceDefinition)→ 
+   </td>
+   <td>json - string
+   </td>
+   <td>
+   </td>
+   <td>儲能系統裝置定義
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-capacity
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>json - number
+   </td>
+   <td>
+   </td>
+   <td>儲能系統裝置容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>jsonb
+   </td>
+   <td>
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### EvsePower
+
+Source: 
+
+Description: EVSE 之監控數據校正每分鐘資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EvsePower
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>timestamp
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>chargePointID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco 充電樁 ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>evseID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco 充電設備 ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>energy
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當日當前累積度數
+   </td>
+   <td>單位：Wh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>current
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當前電流提供充電
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>voltage
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當前電壓提供充電
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>power
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當前功率提供充電
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### EvsePower15
+
+Data Import：
+
+Description: EVSE 之監控數據校正每15分鐘資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EvsePower15
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “EvsePower15”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 15 分鐘累積用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 15 分鐘平均功率
+   </td>
+   <td>單位：kW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+</table>
+
+
+
+#### EvseSession
+
+Source:  
+
+Description: 記錄 EVSE 之監控數據原始資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EvseSession
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>timestamp
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>chargePointID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco 充電樁 ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>evseID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco 充電設備 ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sessionID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>Ampeco 充電紀錄 ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>energyConsumed
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>此次充電的電度數使用(當次sessionID累積)
+   </td>
+   <td>單位：Wh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>soc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>車子當前Soc
+   </td>
+   <td>單位：百分比
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>currentConsumed
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>此次充電的電流使用(當次sessionID累積)
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>currentOffered
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當前電流提供充電
+   </td>
+   <td>單位：A
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>voltage
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當前電壓提供充電
+   </td>
+   <td>單位：V
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerOffered
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>EVSE當前功率提供充電
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### EssPower15（01.04新增）
+
+Source:  rfdme-iot-data-test-ts-db.rfdme-ess-state-test-tb
+
+Description: 記錄 ESS 之監控數據資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EssPower15
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “EssPower15”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>activePower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>15 分鐘平均充放電功率
+   </td>
+   <td>單位：kW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>soc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,5)
+   </td>
+   <td>當15分鐘充電狀態
+   </td>
+   <td>單位：百分比, 值域 0~1
+   </td>
+  </tr>
+</table>
+
+
+
+#### EssStatus
+
+Data Import:  無
+
+Source:  rfdme-iot-data-test-ts-db.rfdme-ess-state-test-tb
+
+Description: 記錄ESS最新soc狀態
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EssStatus
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>附屬裝置編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>soc
+   </td>
+   <td>
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(5,4)
+   </td>
+   <td>剩餘容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>txDate
+   </td>
+   <td>
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>
+   </td>
+   <td>DateTime
+   </td>
+   <td>更新時間
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### (delete)ImputationRecord
+
+Source：
+
+Description：
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ImputationRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>latestStamp
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>isDone
+   </td>
+   <td>0..1
+   </td>
+   <td>Bool
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>?
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### H8_based_PV_power_daily_INV
+
+Description：使用H8衛星反演日射量、電廠鄰近的氣象局測站風速及氣溫，搭配相關模型產出的發電數值。(針對不同逆變器的日資料)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>inv
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>int
+   </td>
+   <td>逆變器號碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kWh
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模型估計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### H8_based_PV_power_daily_objectID
+
+Description：使用H8衛星反演日射量、電廠鄰近的氣象局測站風速及氣溫，搭配相關模型產出的發電數值。(針對不同objectID的日資料)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kWh
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模型估計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### H8_based_PV_power_daily_string
+
+Description：使用H8衛星反演日射量、電廠鄰近的氣象局測站風速及氣溫，搭配相關模型產出的發電數值。(針對不同案場、傾角方位角的日資料)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>String_azimuth
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>float
+   </td>
+   <td>方位角
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>String_slope
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>float
+   </td>
+   <td>傾角
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>GHI
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>全天空輻射量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>POA
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模組接收日射量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kWh_per_kWp
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模型估計發電量
+   </td>
+   <td>每kW估計量
+   </td>
+  </tr>
+</table>
+
+
+
+#### H8_based_PV_power_hourly_INV
+
+Description：使用H8衛星反演日射量、電廠鄰近的氣象局測站風速及氣溫，搭配相關模型產出的發電數值。(針對不同逆變器的小時資料)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>inv
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>int
+   </td>
+   <td>逆變器號碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kWh
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模型估計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### H8_based_PV_power_hourly_objectID
+
+Description：使用H8衛星反演日射量、電廠鄰近的氣象局測站風速及氣溫，搭配相關模型產出的發電數值。(針對不同objectID的小時資料)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp \
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kWh
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模型估計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### H8_based_PV_power_hourly_string
+
+Description：使用H8衛星反演日射量、電廠鄰近的氣象局測站風速及氣溫，搭配相關模型產出的發電數值。(針對不同案場、傾角方位角的小時資料)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp \
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>String_azimuth
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>float
+   </td>
+   <td>方位角
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>String_slope
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>float
+   </td>
+   <td>傾角
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>GHI
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>全天空輻射量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>POA
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模組接收日射量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kWh_per_kWp
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>float
+   </td>
+   <td>模型估計發電量
+   </td>
+   <td>每kW估計量
+   </td>
+  </tr>
+</table>
+
+
+
+#### InsolationPredictionLog  (jerry)
+
+Source：
+
+Description：預報每個時間點的log
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>InsolationPredictionLog
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>?
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logTime
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>?
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logValue
+   </td>
+   <td>0..1
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>?
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### LatestEnergyRecord
+
+Source：rfdme-iot-interpolation-data-prod-stream
+
+Description：紀錄最新收到的發電量資料，以便校正服務使用
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LatestEnergyRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>設備編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td> 資料時間戳記
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>activeEnergy
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>總累計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acActiveEnergyDaily
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>日累計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>abnormalCount
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>
+   </td>
+   <td>smallInt
+   </td>
+   <td>即時異常次數
+   </td>
+   <td>用於處理即時異常數值
+   </td>
+  </tr>
+</table>
+
+
+
+#### LatestEnergyRecordRecalculate
+
+Source：
+
+Description：紀錄最新收到的發電量資料，以便校正服務補值模式使用
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LatestEnergyRecordRecalculate
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>設備編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td> 資料時間戳記
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>activeEnergy
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>總累計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acActiveEnergyDaily
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>日累計發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>abnormalCount
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>
+   </td>
+   <td>smallInt
+   </td>
+   <td>即時異常次數
+   </td>
+   <td>用於處理即時異常數值
+   </td>
+  </tr>
+</table>
+
+
+
+#### Load 
+
+Data Import：轉入 Object 資料時，將屬於負載型案場的部分轉入
+
+Description：負載場資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Loading
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>負載場編號
+   </td>
+   <td>同 objectRef
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Load”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>負載場名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object)&lt;→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadBill
+
+Source：負載端提供之電費單
+
+Description：記錄負載電費單之原始數據
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadBill
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadBillID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>負載電費單編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Price”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Load!)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>負載案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumber
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>負載場電號
+   </td>
+   <td><strong>對應到LoadSubInfo.powerNumberID</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>billType
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>電費單類型
+   </td>
+   <td>1 = 時間電價
+<p>
+2 = 非時間電價
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>yearMonth
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(8)
+   </td>
+   <td>電費單年月
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>電費單計費開始日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>電費單計費結束日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>用電度數
+   </td>
+   <td>註：非時間電價電費單需填入資料
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>peakPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>尖峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>halfPeakPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>半尖峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>satHalfPeakPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>週六半尖峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>offPeakPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>離峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>approveFlag
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>電費單確認註記
+   </td>
+   <td>Y=已經過人工確認；N=尚未經過人工確認
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadExample
+
+Data Import：DEXMA Sample 匯入
+
+Description: 記錄 DEXMA Sample 負載數據資料之記錄
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadPower
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadExampleID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>範本編號
+   </td>
+   <td><strong>對應到 SystmeConfig.systmeConfigID = '2' 清單ID</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “LoadExample”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 15 分鐘累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadPower15
+
+Data Import：RE平台上傳
+
+Description: 記錄 RE 平台負載端資料之記錄
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadPower
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “LoadPower15”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumber
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>負載場電號
+   </td>
+   <td><strong>對應到LoadSubInfo.powerNumberID</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 15 分鐘累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadPower15Device
+
+Data Import：Darren 產出之模擬用監控用電資料
+
+Description: 記錄每 15 分鐘一筆的用電監控資料 (粒度到裝置)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadPower15Device
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>裝置編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “LoadPower15Device”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>該 15 分鐘的平均用電功率
+   </td>
+   <td>單位：kW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>該 15 分鐘用電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>當日累積用電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>crDate = 排程執行時間
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadPrediction
+
+Data Import：無
+
+Source: 由 Andrew 設計之用電預測模型產出
+
+Description: 記錄每 60 分鐘一筆的用電預測資料
+
+**※ 問 Andrew**
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadPrediction
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “LoadPrediction”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每 60 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 60 分鐘的平均用電功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 60 分鐘累積用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadPrediction15
+
+Data Import：Darren 產出之模擬用預測用電資料
+
+Description: 記錄每 15 分鐘一筆的用電預測資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadPrediction15
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “LoadPrediction15”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>用電功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 15 分鐘累積用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### LoadSubInfo  (RE平台新增Table)
+
+Data Import：轉入 Load 資料時，建立對應的電號資訊
+
+Description：負戴電號相關資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Loading
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumberID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>負載電號編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Load”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>電號名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Load)&lt;→ 
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>負戴場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>timePriceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>時間電價類型
+   </td>
+   <td><strong>對應到 SystmeConfig.systmeConfigID = '3'</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>contractCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>bigint
+   </td>
+   <td>契約容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sourceType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>用電數據來源
+   </td>
+   <td>1 = 監控數據
+<p>
+2 = 電費單
+<p>
+3 = 網路範本資料
+<p>
+4 = 非時間電價電費單
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>exampleID
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>範本類型
+   </td>
+   <td><strong>對應到 SystmeConfig.systmeConfigID = '2'</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nonTimeExampleID
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>非時間電價範本類型
+   </td>
+   <td><strong>對應到 SystmeConfig.systmeConfigID = '2'</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(1)
+   </td>
+   <td>資料狀態
+   </td>
+   <td>Y = 使用
+<p>
+D = 刪除
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### NotifyMessageRecord
+
+Description: 任何使用端呼叫『訊息通知模組 (API) 』時，該 API 的被呼叫歷程
+
+Source: 程式 rfdme-vpp-message-notify.api-insert-sqs-notify-queue
+
+update time: 2022-12-06 11:36 (Jeremy)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>NotifyMessageRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>notifyMessageRecordID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>訊息通知編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>programName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>程式名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>programMessage
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>程式欲傳送之訊息內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sendType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>訊息通知類型
+   </td>
+   <td>1 = 通知指定的 LINE 群組
+<p>
+2 = 通知指定的 Mail
+<p>
+3 = 以上兩者都通知
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>groupCodes
+   </td>
+   <td>0..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>指定的 LINE 群組代碼
+   </td>
+   <td>字串，以逗號區隔
+<p>
+對應至 SystemConfig 中，systemConfigID=’1’ 的 values 值
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mailToList
+   </td>
+   <td>0..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>指定的 Mail
+   </td>
+   <td>字串，以逗號區隔
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>建立時間
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### Object
+
+Data Import：
+
+
+
+1. 依據監控2.0 - RfdmeMonitor 資料庫(測試區)中的 ProjectDeviceInfo 有對應到的案場清單 (理論上的實際資料)
+2. RFDME AWS RDS 的 asset 資料庫，轉入 T6294L / T6294ESS / T6294EdReg / T8004L / T8004ESS / T8305L / T8305ESS (調度DEMO用假資料)
+
+Description：案場資訊，案場為太陽能案場、儲能案場、充電樁場、負載場之其一
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Object
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+<p>
+編碼規則：依據開發部給定的代碼
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Object”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>案場名稱
+   </td>
+   <td>Object Name
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>projectRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Project?)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>對應之專案編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>status
+   </td>
+   <td>0..1
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>案場狀態
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+active | inactive | suspended | repairing | error
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>node
+   </td>
+   <td>1..1
+   </td>
+   <td>Backbone(NodeUnion!)
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場類型
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-system
+   </td>
+   <td>1..1
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>案場類型 - 值
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+SolarPlant | EnergyStorageSystem | ChargingStation | Loading 
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-systemRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference( UNION(SolarPlant | EnergyStorageSystem | ChargingStation | Load) !)&lt;→ 
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>案場類型 - 外部對應鍵值
+   </td>
+   <td>SolarPlant | EnergyStorageSystem | ChargingStation | Loading - type of object
+<p>
+查詢 SolaPlant | EnergyStorageSystem | ChargingStation | Loading 使用的條件值，如：T8305
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectPortfolio
+   </td>
+   <td>0..1
+   </td>
+   <td>Backbone(Portfolio)
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場履歷
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>successiveOwnerships
+   </td>
+   <td>0..*
+   </td>
+   <td>[Ownership!]
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場歷年擁有權
+   </td>
+   <td>AcquisiteObject table included
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>partnerRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([Company])→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>案場合夥公司參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>location
+   </td>
+   <td>0..1
+   </td>
+   <td>GeoLocation
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場地理位置
+   </td>
+   <td>GPS location of the object
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>address
+   </td>
+   <td>0..1
+   </td>
+   <td>Address
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場地址
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>capacity
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>案場容量
+   </td>
+   <td>太陽能廠 = 所有太陽能板的最多發電裝置容量 
+<p>
+儲能場 = 所有電池最多能儲存多少電量 
+<p>
+充電樁 = 所有充電樁其供電的最大總額
+<p>
+負載 = ?
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNode
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場邊緣節點
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>案場邊緣節點類型
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+control | monitoring | both
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeCenterNodeRef
+   </td>
+   <td>1..*
+   </td>
+   <td>Reference([EdgeCenterNode!])→ 
+   </td>
+   <td>
+   </td>
+   <td>json - string[]
+   </td>
+   <td>案場邊緣節點參考
+   </td>
+   <td>因為一個EdgeCenterNode，可對應1到*案場，且一個案場可對應0到1個監控箱。所以這邊EdgeCenterNode為0..1，然後由Object直接refer到EdgeCenterNode，EdgeCenterNode不refer回Object。
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>weatherStationRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(WeatherStationInfo)→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場附近觀測站參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceContractRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([PriceContract])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>相關電價
+   </td>
+   <td>躉售電價、轉供電價...等
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(1)
+   </td>
+   <td>資料狀態
+   </td>
+   <td>Y = 使用
+<p>
+D = 刪除
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ObjectPendingList
+
+Description：需被校正處理的案場監控值列表
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ObjectPendingList
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>id
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>案場id
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>處理起始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>eTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>處理結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>0..1
+   </td>
+   <td>Bool
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>處理狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>energy_diff
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 8)
+   </td>
+   <td>時間區間發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### OmFilter
+
+**Description:** O&M 2.0 平台中，OM 表單的個人篩選條件
+
+**Source:** O&M 2.0 平台介面輸入
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>OmFilter
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFilterID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>OM個人篩選條件編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFilterName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>OM個人篩選條件暱稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFilterContent
+   </td>
+   <td>0..1
+   </td>
+   <td>ASWJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>個人篩選條件內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(User)→
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>使用者識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### OmForm
+
+**Description:** O&M 2.0 平台中，OM 表單
+
+**Source:** O&M 2.0 平台介面輸入
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>OmForm
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFormID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>單號
+   </td>
+   <td>編碼規則："OM" + 6碼流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cidFormRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(CidForm)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>CID表單單號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>status
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>狀態
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omStatus') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startTime
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>派工開始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endTime
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>派工結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>soure
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>來源
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omSource') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>object
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(30)
+   </td>
+   <td>相關案場
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>traffic
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>交通方式
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omTraffic') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectPvStatus
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>預期案場狀態
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omExpectPvStatus') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>action
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>行動
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omAction') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>executionResult
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>執行結果
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omExecutionResult') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>processingItem
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>處理項目
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>actionPlan
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>行動計劃
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userInCharge
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([User])→
+   </td>
+   <td>
+   </td>
+   <td>uuid[]
+   </td>
+   <td>主要處理人員
+   </td>
+   <td>存放內容參考：
+<p>
+[&lt;UUID1>, &lt;UUID2>]
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userCooperate
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([User])→
+   </td>
+   <td>
+   </td>
+   <td>uuid[]
+   </td>
+   <td>協同處理人員
+   </td>
+   <td>存放內容參考：
+<p>
+[&lt;UUID3>, &lt;UUID4>]
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>continueFlag
+   </td>
+   <td>   1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>接續開單註記
+   </td>
+   <td>Y=需要接續開單
+<p>
+N=不需要接續開單
+<p>
+Z =已完成接續開單
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nextOmFormID
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>接續的 OM 單號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### OmFormHistory
+
+**Description:** O&M 2.0 平台中，OM 表單異動歷程 (用於查詢使用者操作追蹤)
+
+**Source:** O&M 2.0 平台異動 OM 表單資料時，同步記錄
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>OmFormHistory
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFormHistoryID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>流水號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFormID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>OM表單單號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFormContent
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>OM表單內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crUser
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(User)→
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>建立人員識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>建立日期時間
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### OmWorkHistory
+
+**Description:** O&M 2.0 平台中，OM 處理歷程
+
+**Source:** O&M 2.0 平台介面輸入
+
+**Data Import History:** 無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>OmWorkHistory
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omFormID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>OM表單單號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>seq
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>PK
+   </td>
+   <td>smallint
+   </td>
+   <td>該表單之處理歷程編號
+   </td>
+   <td>不同張OM單，編號重編
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>status
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>狀態
+   </td>
+   <td>對應 SystemConfig ( systemName='OM', key='omWorkStatus') 的 values 欄位值的 key
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>處理開始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>處理結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>處理人員
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>workContent
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>工作簡述
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recommend
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>下次建議
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logbook
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>LogBooks
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ocaps
+   </td>
+   <td>0..*
+   </td>
+   <td>[String]
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>Ocaps
+   </td>
+   <td>存放內容參考：
+<p>
+["OCAP0001", "OCAP0002"]
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>components
+   </td>
+   <td>0..*
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>更換組件
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- componentID
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>組件編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- amount
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>組件數量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>files
+   </td>
+   <td>0..*
+   </td>
+   <td>BackBone([FileProps])
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>附件
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### OuterProject 
+
+Source: 從各平建立此表資料
+
+Description: 外部案場之專案資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Project
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>outerProjectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>專案編號
+   </td>
+   <td>ID
+<p>
+編碼規則 ( RE 平台 )：
+<p>
+發電 = 字母為 S
+<p>
+用電 = 字母為 L
+<p>
+?????
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “OuterProject”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>專案名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>持有者公司參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PVModule
+
+Source：settingsDB
+
+Description：逆變器規格
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PVModule
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>model
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>模組型號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vendor
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>廠商
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cellType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cellSize
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>integer
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>layoutHeight
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>integer
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>layoutWidth
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>integer
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>height
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>width
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>thickness
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tolerance_LB
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(4, 2)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tolerance_UB
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(4, 2)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>busBar
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pmpp
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vmpp
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>impp
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>voc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>isc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tc_pmpp
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tc_voc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tc_isc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>noct
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxOvercurrent
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>rs
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>eff
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### Price (移除這張表)
+
+Data Import：匯入 PriceContract 資料表時，將價格相關欄位整理後轉入
+
+Description：價格資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Price
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>價格編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Price”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>價格名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>values
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>jsonb
+   </td>
+   <td>價格金額
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>json
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PriceContract 
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 SellPrice 資料轉置後匯入 (註：需要另外建立 Company 資料)
+
+Description：與金錢交易有關的合約資料記錄
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PriceContract
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceContractID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>合約編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PriceContract”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(500)
+   </td>
+   <td>合約名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>contractPeriod
+   </td>
+   <td>1..1
+   </td>
+   <td>Period
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>合約有效區間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>prices
+   </td>
+   <td>1..*
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>合約價格內容
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-partyACompanyRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Company!)
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>甲方
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-partyBCompanyRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>乙方
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-partyATakeMoney
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>json - bool
+   </td>
+   <td>是否是甲方收錢
+   </td>
+   <td>如果是 true 表示甲方收錢，如果是 false 表示甲方付錢
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-pricePeriod
+   </td>
+   <td>1..1
+   </td>
+   <td>Period!
+   </td>
+   <td>
+   </td>
+   <td>json - object
+   </td>
+   <td>價格有效區間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-price
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>躉售價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-acquisitionPrice 
+   </td>
+   <td>0..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>電力取得價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-revenueSharingR<a href="https://dictionary.cambridge.org/dictionary/english-chinese-traditional/ratio">atio</a>
+   </td>
+   <td>0..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>抽成比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-demandLimit
+   </td>
+   <td>0..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>契約容量上限
+   </td>
+   <td>單位:瓩(kW) 
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>staust
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>狀態
+   </td>
+   <td>null = 正式合約
+<p>
+1 = VPP試算
+<p>
+2 = RE試算
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### Project
+
+Source: 可從 S:\CURVE 相關資料夾中的檔案，整理至此表
+
+Description: 微電建造(買進)案場之專案資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Project
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>projectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>專案編號
+   </td>
+   <td>ID
+<p>
+編碼規則：依據開發部/業務部給定的代碼
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Project”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>專案名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>持有者公司參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PvMeterPrediction
+
+Data Import：從 Timestream.rfdme-predict-power5-data-test-tb 轉入，該表在轉入後將移除不使用
+
+Source: 利用太陽能案場之監控數據，預測之後 5 分鐘的發電數據
+
+Description: 記錄每 5 分鐘一筆的太陽能發電預測資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PvMeterPrediction
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PvMeterPrediction”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每 5 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘每 kWp 的發電功率
+   </td>
+   <td>單位：kW  (有除以裝置容量)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PvSatellitePrediction
+
+Data Import：從 Timestream.rfdme-predict-data-test-tb 轉入，該表在轉入後將移除不使用
+
+Source: 由 智堯 設計之太陽能發電預測模型產出
+
+Description: 記錄每 5 分鐘一筆的太陽能發電預測資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PvSatellitePrediction
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PvSatellitePrediction”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每 5 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘每 kWp 的發電功率
+   </td>
+   <td>單位：kW (有除以裝置容量)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PvSolcastPrediction
+
+Data Import：從 Timestream.rfdme-predict-solcast-elec-test-tb 轉入，該表在轉入後將移除不使用
+
+Source: 利用爬蟲撈取 solcast 網頁並記錄所需資訊
+
+Description: 記錄 solcast 的太陽能發電預測資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PvSolcastPrediction
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PvSolcastPrediction”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘每 kWp 的發電功率
+   </td>
+   <td>單位：kW (有除以裝置容量)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PvString
+
+Description：太陽能案場中，太陽能板與逆變器串列組合資訊
+
+Datasource：S:\共用\電站相關\PPdiagnose_access 的 PPD_settingsDB-v1F.xlsm
+
+How to Import：手動執行程式 ( Yuan撰寫)，將 xlsm 資料更新到資料表 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PvString
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(SolarPlant!) ←→
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>太陽能案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>stringID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>串列編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>roofNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>屋頂號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>roofFace
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>屋頂座向
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>azimuth
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>方位角
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>roofElevationAngle
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(5, 2)
+   </td>
+   <td>屋頂仰角
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>moduleSerialNumber
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>模組序號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>stringModuleCount
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>單串模組數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>stringCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>單串容量(KW)
+   </td>
+   <td>對應原表:THEORY_STR_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox1EqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>直流箱1設備編號
+   </td>
+   <td>對應原表:INPUT_DCB1_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox1InNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>直流箱1輸入編號
+   </td>
+   <td>對應原表:INPUT_DCB1_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox1OutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>直流箱1輸出編號
+   </td>
+   <td>對應原表:INPUT_DCB1_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox1InKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>直流箱1輸入kw
+   </td>
+   <td>對應原表:THEORY_DCB1_IN_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox2EqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>直流箱2設備編號
+   </td>
+   <td>對應原表:INPUT_DCB2_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox2InNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>直流箱2輸入編號
+   </td>
+   <td>對應原表:INPUT_DCB2_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox2OutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>直流箱2輸出編號
+   </td>
+   <td>對應原表:INPUT_DCB2_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dcBox2InKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>直流箱2輸入kw
+   </td>
+   <td>對應原表:THEORY_DCB2_IN_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>invEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>逆變器設備編號
+   </td>
+   <td><strong>對應: ClientDevice.seq</strong>
+<p>
+對應原表:INPUT_INV_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>invInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>逆變器輸入編號
+   </td>
+   <td>對應原表:INPUT_INV_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>invOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>逆變器輸出編號
+   </td>
+   <td>對應原表:INPUT_INV_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>invInKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>逆變器輸入kw
+   </td>
+   <td>對應原表:THEORY_INV_IN_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>invOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>逆變器輸出kw
+   </td>
+   <td>對應原表:THEORY_INV_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acBoxEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>交流箱設備編號
+   </td>
+   <td>對應原表:INPUT_ACB_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acBoxInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>交流箱輸入編號
+   </td>
+   <td>對應原表:INPUT_ACB_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acBoxOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>交流箱輸出編號
+   </td>
+   <td>對應原表:INPUT_ACB_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acBoxInKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>交流箱輸入kw
+   </td>
+   <td>對應原表:THEORY_ACB_IN_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>acBoxOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>交流箱輸出kw
+   </td>
+   <td>對應原表:THEORY_ACB_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>
+   </td>
+   <td>對應原表:INPUT_TR_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>
+   </td>
+   <td>對應原表:INPUT_TR_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>
+   </td>
+   <td>對應原表:INPUT_TR_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trInKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>對應原表:THEORY_TR_IN_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>
+   </td>
+   <td>對應原表:THEORY_TR_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mpEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>總盤設備編號
+   </td>
+   <td>對應原表:INPUT_MP_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mpInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>總盤輸入編號
+   </td>
+   <td>對應原表:INPUT_MP_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mpOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>總盤輸出編號
+   </td>
+   <td>對應原表:INPUT_MP_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mpInKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>總盤輸入kw
+   </td>
+   <td>對應原表:THEORY_MP_IN_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mpOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>總盤輸出kw
+   </td>
+   <td>對應原表:THEORY_MP_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pmEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>數位電表設備編號
+   </td>
+   <td>對應原表:INPUT_PM_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pmInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>數位電表輸入編號
+   </td>
+   <td>對應原表:INPUT_PM_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pmOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>數位電表輸出編號
+   </td>
+   <td>對應原表:INPUT_PM_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pmOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>數位電表輸出kw
+   </td>
+   <td>對應原表:THEORY_PM_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>smEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>日照計設備編號
+   </td>
+   <td>對應原表:INPUT_SM_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>smInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>日照計輸入編號
+   </td>
+   <td>對應原表:INPUT_SM_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>smOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>日照計輸出編號
+   </td>
+   <td>對應原表:INPUT_SM_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>smOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>日照計輸出kw
+   </td>
+   <td>對應原表:THEORY_SM_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tmEqNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>溫度計設備編號
+   </td>
+   <td>對應原表:INPUT_TM_EQ_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tmInNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>溫度計輸入編號
+   </td>
+   <td>對應原表:INPUT_TM_IN_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tmOutNO
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>溫度計輸出編號
+   </td>
+   <td>對應原表:INPUT_TM_OU_No
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tmOutKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 4)
+   </td>
+   <td>溫度計輸出kw
+   </td>
+   <td>對應原表:THEORY_TM_OU_KW
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crUser
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>建立人員識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>建立日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>txUser
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>uuid
+   </td>
+   <td>異動人員識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>txDate
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>異動日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>invInDc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,4)
+   </td>
+   <td>INV起始電壓
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PvWrfPrediction
+
+Data Import：從 Timestream.rfdme-predict-wrf-data-test-tb 轉入，該表在轉入後將移除不使用
+
+Source: 利用 WRF / LSTM 機制計算出之太陽能發電預測資料
+
+Description: 記錄透過機器學習機制所得的太陽能發電預測資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PvWrfPrediction
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PvWrfPrediction”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘每 kWp 的發電功率
+   </td>
+   <td>單位：kW (有除以裝置容量)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>該 5 分鐘累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PVSignal
+
+Source: signal asset
+
+Description: 記錄signal的asset資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Signal
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>訊號編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Signal”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>訊號名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>displayName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>訊號呈現名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>訊號類型
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>component
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(30)
+   </td>
+   <td>訊號來自的組件
+   </td>
+   <td>INV, DM, IRR, TEMP, CORE_DEVICE
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trigger
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>訊號檢測頻率Cron
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+####  \
+PVAlert
+
+Source: alert  asset
+
+Description: 記錄alert的asset資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Alert
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>警報編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Alert”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>警報名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>displayName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>警報呈現名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(30)
+   </td>
+   <td>警報類型
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalNameRef
+   </td>
+   <td>1..*
+   </td>
+   <td>[String!]
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)[]
+   </td>
+   <td>判斷訊號參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>condition
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>訊號判斷邏輯
+   </td>
+   <td>could be “or”, “and”, “order”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>extend
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>判斷訊號需持續時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>component
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(30)
+   </td>
+   <td>警報來自組件
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>degree
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>警報嚴重程度
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PVSignalLog
+
+Source: signal經由異常檢測框架等方法產生，並且去重後後寫入PVSignalLog
+
+Description: 記錄經由異常檢測框架l產生之signal
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PVSignalLog
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalLogID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>訊號流水編號
+   </td>
+   <td>流水編號，前端顯示用
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalOwnerID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>訊號擁有者編號
+   </td>
+   <td>ID (可能是 objectID 或者 clientDeviceID)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PVSignalLog”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>訊號名稱
+   </td>
+   <td>對應到 Signal.signalName
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startTimestamp
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>訊號起始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endTimestamp
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>訊號結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>擁有者類型
+   </td>
+   <td>用以說明signalOwnerID是objectID or clientDeviceID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalHistory
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>訊號訊息內容
+   </td>
+   <td>紀錄同一事件所產生的歷史signal
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-time
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>訊號檢測時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-switch
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>訊號開關
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-anomalyInfo
+   </td>
+   <td>0..1
+   </td>
+   <td>JsonElement
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>異常點資訊
+   </td>
+   <td>案例 \
+[
+<p>
+
+    {
+<p>
+
+      "time": "2022-12-29T00:30:01.000000000Z",
+<p>
+
+      "field": "Credibility",
+<p>
+
+      "value": 3.5
+<p>
+
+    }
+<p>
+]
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-anomalyPoints
+   </td>
+   <td>0..*
+   </td>
+   <td>[JsonElement]
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>異常點
+   </td>
+   <td>案例
+<p>
+[
+<p>
+
+    {
+<p>
+
+      "time": "2022-12-29T00:30:01.000000000Z",
+<p>
+
+      "field": "dcVoltage1",
+<p>
+
+      "value": 614.6
+<p>
+
+    },
+<p>
+
+    {
+<p>
+
+      "time": "2022-12-29T00:35:01.000000000Z",
+<p>
+
+      "field": "dcVoltage2",
+<p>
+
+      "value": 626.3
+<p>
+
+    }
+<p>
+]
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>switch
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean!
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>訊號開關
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expired
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean!
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>訊號是否過期
+   </td>
+   <td>active or inactive
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### PVAlertLog
+
+Source: PVSignalLog經由business roles or decision tree or ml等方法產生Alert，並且去重後後寫入PVAlertLog
+
+Description: 記錄經由signal產生之alert
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PVAlertLog
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertLogID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>警報流水編號
+   </td>
+   <td>流水編號，前端顯示用
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertOwnerID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>警報擁有者編號
+   </td>
+   <td>依據 ownerType 欄位的內容，來決定此欄位的編號涵義
+<p>
+Object → objectID
+<p>
+ClientDevice  → clientDeviceID
+<p>
+EdgeController → edgeControllerID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “PVAlertLog”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>alertName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>警報名稱
+   </td>
+   <td>對應到 Alert.alertName
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startTimestamp
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>警報起始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endTimestamp
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>警報結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>signalLogRef
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>警報對應訊號
+   </td>
+   <td>觸發此警報的訊號參考
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerOtherSignalRef
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>擁有者其他訊號
+   </td>
+   <td>同個擁有者 其他訊號參考
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>擁有者類型
+   </td>
+   <td>Object | ClientDevice | EdgeController
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>lossEnergy
+   </td>
+   <td>1..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16, 5)
+   </td>
+   <td>累積發電損失
+   </td>
+   <td>單位：kwh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expired
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>警報是否過期
+   </td>
+   <td>active or inactive
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJson!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>realComponent
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>實際設備等級
+   </td>
+   <td>對應 SystemConfig 表中
+<p>
+systemName='OM', key='AlertRealComponent' 之設定
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>misjudge
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>是否為誤判
+   </td>
+   <td>Y = 是
+<p>
+N = 否
+<p>
+Null = 否
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>misjudgeType
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>誤判類別
+   </td>
+   <td>對應 SystemConfig 表中
+<p>
+systemName='OM', key='AlertMisjudgeType' 之設定
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>misjudgeReason
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(3000)
+   </td>
+   <td>誤判說明
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>respType
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>責任歸屬類別
+   </td>
+   <td>對應 SystemConfig 表中
+<p>
+systemName='OM', key='AlertRespType' 之設定
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cause
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(3000)
+   </td>
+   <td>事由
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### RealInsolationPower
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 RealInsolationPower 資料轉置後匯入
+
+Source:  向日葵8號衛星資料 BIN 檔
+
+Description: 衛星資料直轉發電量
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>RealInsolationPower
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “RealInsolationPower”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>日期時間
+   </td>
+   <td>每 10 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>該 10 分鐘累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerKwPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>該 10 分鐘發電功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### RegressionParameter (部份欄位與db不同)
+
+Description: 迴歸式衛星預報之公式記錄
+
+※ 目前等待程式調整，再由開發者提出資料表最終規格，並轉入資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>RegressionParameter
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>id
+   </td>
+   <td>1..1
+   </td>
+   <td>
+   </td>
+   <td>PK
+   </td>
+   <td>integer
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>uuid
+   </td>
+   <td>1..1
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID \
+db:無此欄位
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type \
+db:無此欄位
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “RegressionParameter”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kind
+   </td>
+   <td>0..1
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>x2
+   </td>
+   <td>0..1
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>double
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>x
+   </td>
+   <td>0..1
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>double
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>c
+   </td>
+   <td>0..1
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>double
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### Resource
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 Resource / ResourceDeviceMapping 資料轉置後匯入
+
+Description: 調度優化使用的抽象聚合資源
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Resource
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>resourceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>抽象聚合資源編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → "Resource"
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>抽象聚合資源顯示名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kind
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>抽象聚合資源類型
+<p>
+pv | ess | load | ev
+   </td>
+   <td>列舉值：source | sink | storage | bus
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceRef
+   </td>
+   <td>1..*
+   </td>
+   <td>Reference([ClientDevice!]) →
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>邊緣端裝置參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ResourcePaocRecord
+
+Source:
+
+Description: 拆解調度指令，依照其內容展開成指定資源每分鐘的調度目標值。此表的資料，應只由 MQTT Subscriber Program 維護
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ResourcePaocRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>resourceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>抽象聚合資源編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → "ResourcePaocRecord"
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp 
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>simulateFlag
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>char(1)
+   </td>
+   <td>模擬數據註記
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wattValue
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15, 5)
+   </td>
+   <td>調度目標值
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>achieveRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 5)
+   </td>
+   <td>該分鐘的調度達成率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyVPPGridRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(TopologyVPPGrid)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>VPP虛擬電網參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### SolarPlant  
+
+Data Import：轉入 Object 資料時，將屬於太陽能型案場的部分轉入
+
+Description：太陽能案場資訊 \
+Note：如果微電另外接入其他案場，且案場有許多資訊不列於下面的欄位，則可以加入interface SolarPlant，並且讓此SolarPlant去繼承interface SolarPlant。 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>SolarPlant
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>solarPlantID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>太陽能案場編號
+   </td>
+   <td>同 objectRef
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “SolarPlant”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>太陽能案場名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Object)&lt;→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>solarPlantType
+   </td>
+   <td>0..1
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>太陽能案場類型
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+none | singleSubstation | lowSubstation
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>isPatch
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>是否是"補"型的案場
+   </td>
+   <td>不知道用意，但在原代碼設計中，代碼含有 E 的，表示它是 "補" 案，所以增加此屬性來記錄。
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>setup
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJson / String
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>開關及參數設定
+   </td>
+   <td>{  \
+"show_monitor":&lt;電站維運管理平台開關>,  \
+"setup_inv ":&lt;Inv監控開關>,  \
+"setup_sp ":&lt;Sp監控開關>,  \
+"health_monitor_pvalue":&lt;健康分析參數>,  \
+"inv_offset_value":&lt;健康分析參數>,  \
+"sp_offset_value ":&lt;健康分析參數>,  \
+"line_notify_status":&lt;Line通知開關>,  \
+}
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>annualPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 5)
+   </td>
+   <td>首年保證發電量 (kWh)
+   </td>
+   <td>此欄位唯一會變動數值的時間為 一開始案場建立與案場將被交易時且有簽維運合約的情況下。
+<p>
+※ 以 setttingsDB.xlsx 中的資料更新
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>annualDecayRate
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>年效率衰減(%)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>meterBeginDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>掛表日
+   </td>
+   <td>※ 以 settingsDB.xlsx 中的資料更新
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>validityBeginDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>結算起始日
+   </td>
+   <td>如果是自建的案場，結算起始日與掛表日為同一天
+<p>
+如果是非自建的案場(即買來的)，結算起始日為買到手的那天
+<p>
+保留欄位，目前整併索拉的資料
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>saleMode
+   </td>
+   <td>1..*
+   </td>
+   <td>[String!]
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>賣電對象
+   </td>
+   <td>fit(躉售), wheeling(轉供)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>guaranteeBeginDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>保發起始日
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>preparePeriod
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>大案的施工期別
+   </td>
+   <td>以目前天璣大案為例，它的期別有
+<p>
+1, 2-1-1, 2-2-2, …
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxMatch
+   </td>
+   <td>1..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,5)
+   </td>
+   <td>最大匹配比例
+   </td>
+   <td>案場可以提供給轉供負載優化匹配的比例
+<p>
+未匹配值為 1 
+<p>
+已匹配10%，值為 0.9
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### SystemConfig
+
+Source:
+
+Description: 全服務通用型設定
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>SystemConfig
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>systmeConfigID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>設定編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “SystemConfig”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>systemName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>服務名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>key
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>values
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>自行定義之設定值
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>description
+   </td>
+   <td>0..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>設定說明
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCBasicPrice
+
+Description：台電基本電費資料
+
+Source：『電價計算_台電_電價表_11201調漲_簡易版.pdf』整理的資料
+
+Data Import：無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCBasicPrice
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcBasicPriceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>流水號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcPowerBillRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(TPCPowerBill)→
+   </td>
+   <td>
+   </td>
+   <td>integer
+   </td>
+   <td>台電電費類型流水號
+   </td>
+   <td>對應 TPCPowerBill.tpcPowerBillID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>isSummer
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean!
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>是否為夏月
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceContractByHouse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>(裝置契約 / 不分)
+<p>
+按戶計收費用 - 不分
+   </td>
+   <td>每戶每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceContractByHouseMeter1
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>按戶計收費用 - 單相
+   </td>
+   <td>每戶每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceContractByHouseMeter3
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>按戶計收費用 - 三相
+   </td>
+   <td>每戶每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>deviceContractByKw
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>(裝置契約)
+<p>
+裝置契約費用
+   </td>
+   <td>每瓩每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>responseContractByHouse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>(需量契約)
+<p>
+按戶計收費用 - 不分
+   </td>
+   <td>每戶每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>contract
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>經常契約
+   </td>
+   <td>每瓩每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>halfPeakContract
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>半尖峰契約
+   </td>
+   <td>每瓩每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>satHalfPeakContract
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>週六半尖峰契約
+   </td>
+   <td>每瓩每月
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>offPeakContract
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>離峰契約
+   </td>
+   <td>每瓩每月
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCConfig
+
+Source: EdregAchievementLookup、AfcPriceConfig
+
+Description: 台電官方用設定檔
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCConfig
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcConfigID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>台電設定檔編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TPCConfig”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kind
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(500)
+   </td>
+   <td>規則適用說明
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>rules
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>條件
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCEdregPaocRecord
+
+Source: EssPaocRecord
+
+Description: 記錄台電端進行 e-dReg 調度的指令
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCEdregPaocRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TPCEdregPaocRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp 
+<p>
+with time zone
+   </td>
+   <td>開始時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endTime
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>
+   </td>
+   <td>timestamp 
+<p>
+with time zone
+   </td>
+   <td>結束時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>bidPrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>得標價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>bidCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(8, 3)
+   </td>
+   <td>得標容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>shiftCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(8, 3)
+   </td>
+   <td>電能移轉排程量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>basicFrequency
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 3)
+   </td>
+   <td>基準頻率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>qualityIndex
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(3, 2)
+   </td>
+   <td>服務品質指標(監控)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcConfigRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(TPCConfig)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>AFC輔助服務價格對應
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCEdregRecord
+
+Source: EssEdregRecord
+
+Description: 從 Timestream 資料庫中，搬移 ess-edreg 監控資料，並在搬移時進行達成率的計算
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCEdregRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>附屬裝置編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>監控時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TPCEdregRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>measureName
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>監測名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>frequency
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(5, 3)
+   </td>
+   <td>頻率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dregPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>dReg功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>soc
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>電池狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>enhancedPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>尖離峰轉移功率(e-dReg)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>activePower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>實際功率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>achieveRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>達成率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCHoliday
+
+Source: 台電公告，手動輸入
+
+Description: 記錄台電定義之用電離峰日
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCHoliday
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcHolidayID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>台電離峰日編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TPCHoliday”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>year
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(4)
+   </td>
+   <td>西元年
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dates
+   </td>
+   <td>0..*
+   </td>
+   <td>[String!]
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>該年之離峰日
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>govHoliday
+   </td>
+   <td>0..*
+   </td>
+   <td>[String!]
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)[]
+   </td>
+   <td>該年之政府放假日
+   </td>
+   <td>手動轉入（<a href="https://data.gov.tw/dataset/14718）">https://data.gov.tw/dataset/14718）</a>
+<p>
+轉入是否放假為2的日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCPowerBill
+
+Description：台電電費類型檔
+
+Source：從『電價計算_台電_電價表_11201調漲_簡易版.pdf』整理的資料
+
+Data Import：無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCPoweBill
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcPowerBillID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>流水號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kindValue
+   </td>
+   <td>1..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>電價類型值
+   </td>
+   <td>讓使用的 table (LoadSubInfo) 對應回來的值
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>kindName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>電價類型名稱
+   </td>
+   <td>簡易型二段式、簡易型三段式...
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>seq
+   </td>
+   <td>1..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>該類型的序號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sort
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>電價類型排序
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>validStartDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>有效日期 - 起
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vlidEndDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>有效日期 - 迄
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>over2000pricePerUnit
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 2)
+   </td>
+   <td>每月總度數超過2000度之部分，每度加收金額
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>summerStartDate
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>夏月計算日期 - 起
+   </td>
+   <td>格式：MM-DD
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>summerEndDate
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>夏月計算日期 - 迄
+   </td>
+   <td>格式：MM-DD
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCSettleInformation（歷史結清價格及交易量）
+
+Source: 電力交易平台
+
+Description: 電力交易平台相關參數，有部分未知資料先撈進資料庫
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCSettleInformation
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>資料時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>marginalPrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regBid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>調頻備轉得標容量（國營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regBidQse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>調頻備轉得標容量（民間）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regBidNontrade
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>調頻備轉得標容量（作廢）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regDemand
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regOffering
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regPrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regRegistered
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srBid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>即時備轉得標容量（國營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srBidQse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>即時備轉得標容量（民間）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srBidNontrade
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>即時備轉得標容量（作廢）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srDemand
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srOffering
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srPrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srRegistered
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supBid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>補充備轉得標容量（國營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supBidQse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>補充備轉得標容量（民間）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supBidNontrade
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>補充備轉得標容量（作廢）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supDemand
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supOffering
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supPrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supRegistered
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(11, 8)
+   </td>
+   <td>未知
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCTenderInformation（歷史投標容量）
+
+Source: 電力交易平台
+
+Description: 電力交易平台相關參數
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCTenderInformation
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>資料時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regOffering
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>調頻備轉投標容量（國營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>regOfferingQse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>調頻備轉投標容量（民營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srOffering
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>即時備轉投標容量（國營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>srOfferingQse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>即時備轉投標容量（民營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supOffering
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>補充備轉投標容量（國營）
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>supOfferingQse
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(18, 8)
+   </td>
+   <td>補充備轉投標容量（民營）
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TPCTimePrice
+
+Description：台電流動電費資料
+
+Source：『電價計算_台電_電價表_11201調漲_簡易版.pdf』整理的資料
+
+Data Import：無
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TPCTimePrice
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcTimePriceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>serial
+   </td>
+   <td>流水號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>tpcPowerBillRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(TPCPowerBill)→
+   </td>
+   <td>
+   </td>
+   <td>integer
+   </td>
+   <td>台電電費類型流水號
+   </td>
+   <td>對應 TPCPowerBill.tpcPowerBillID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startTime
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSTime
+   </td>
+   <td>
+   </td>
+   <td>time
+<p>
+with time zone
+   </td>
+   <td>計費開始時間
+   </td>
+   <td>台灣時間
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endTime
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSTime
+   </td>
+   <td>
+   </td>
+   <td>time
+<p>
+with time zone
+   </td>
+   <td>計費結束時間
+   </td>
+   <td>台灣時間
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>isSummer
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>boolean
+   </td>
+   <td>是否為夏月
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>weekType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>日期類型
+   </td>
+   <td>A = 週一至週五
+<p>
+B = 週六
+<p>
+C = 週日與離峰日
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>peakType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>峰型
+   </td>
+   <td>A = 尖峰
+<p>
+B = 半尖峰
+<p>
+C = 離峰
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>price
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(5, 2)
+   </td>
+   <td>電費價格
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TopologyFlow 
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 TopologyFlow 資料轉置後匯入
+
+Description: 虛擬電網之拓撲節點間”流”的資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TopologyFlow
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyFlowID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp flow 編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TopologyFlow”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startVppNodeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(TopologyNode!)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>起始節點參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endVppNodeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>迄止節點參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceContractRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(PriceContract)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>價格契約參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>conversionFactorsTransformer
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>轉換率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nominalValue
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>額定量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>range
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>某範圍
+   </td>
+   <td>原設計欄位為 max / min (最大值 / 最小值)
+<p>
+0~1 \
+數值 | 陣列 \
+陣列:表示一天中每15分鐘一個數值
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>variableCosts
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>可變成本
+   </td>
+   <td>暫停使用
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>summedRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>總流量範圍
+   </td>
+   <td>總流量最大值、總流量最小值
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>fixed
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>bool
+   </td>
+   <td>是否固定
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>investment
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>投資規劃
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nonconvex
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>非連續型變數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>positiveGradientUpperBound
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>提高功率上限
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>positiveGradientCosts
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>提高功率成本
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>negativeGradientUpperBound
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>降低功率上限
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>negativeGradientCosts
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>降低功率成本
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>dr
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>bool
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TopologyNode
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 TopologyNode 資料轉置後匯入
+
+Description: 虛擬電網之拓撲節點資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TopologyNode
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyNodeID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp node 編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TopologyNode”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>label
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>節點標籤
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nodeType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>節點類別
+   </td>
+   <td>bus | source | storage | sink
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>nominalStorageCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>標稱儲存容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>initialStorageLevel
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>初始儲存電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>balanced
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>bool
+   </td>
+   <td>平衡限制
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>lossRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,6)
+   </td>
+   <td>自損率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>inflowConversionFactor
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>輸入轉換比率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>outflowConversionFactor
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>輸出轉換比率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>storageLevelRange
+   </td>
+   <td>0..1
+   </td>
+   <td>Range
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>儲存容量等級範圍
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>investRelationInputCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>輸入投資容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>investRelationOutputCapacity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>輸出投資容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>investRelationInputOutput
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>投資輸出入比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>fixedLossesRelative
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>相對固定損秏
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>fixedLossesAbsolute
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>絕對固定損秏
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>investment
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>投資規劃
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>singleOutput
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>
+   </td>
+   <td>bool
+   </td>
+   <td>單一輸出
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>resourceRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([Resource])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>資源對應參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vppFlowRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([TopologyFlow])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>虛擬電網"流"參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>taker
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>持有方
+   </td>
+   <td> {
+<p>
+          "producer": 1,
+<p>
+          "consumer": null
+<p>
+ }
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sourceType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>能源類別
+   </td>
+   <td>green | gray
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sinkType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>負載類別
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endStorageLevel
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>結束儲存電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>transformerType
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>轉換類別
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>position
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(50)
+   </td>
+   <td>位置
+   </td>
+   <td>front | behind
+<p>
+sourceType = green
+<p>
+=> front : 綠電轉供；behind : 自發自用
+<p>
+nodeType = storage
+<p>
+=> front : 錶前儲能；behind : 錶後儲能
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TopologyTemplate 
+
+Data Import：
+
+Description: 拓撲模板
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TopologyTemplate
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>templateID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>模板編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TopologyTemplate”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>templateName
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>模板名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyInfo
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>拓撲內谷
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TopologyVPPConfig
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 TopologyVPPConfig 資料轉置後匯入
+
+Description: 虛擬電網設定資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TopologyVPPConfig
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyVPPConfigID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp config 編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TopologyVPPConfig”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>resolution
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>時間間隔
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>timeUnit
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>時間單位
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>configPeriod
+   </td>
+   <td>0..1
+   </td>
+   <td>Period
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>設定有效區間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>horizon
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>時間總長
+   </td>
+   <td>單位：小時
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectiveType
+   </td>
+   <td>0..1
+   </td>
+   <td>enum
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>目標類別
+   </td>
+   <td>cost | price | re
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>timezone
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(30) 
+   </td>
+   <td>時區
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>comparisonHorizon
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>比較時長
+   </td>
+   <td>單位：小時
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>reLowerBound
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,2)
+   </td>
+   <td>最低RE限制%
+   </td>
+   <td>0~1
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TopologyVPPGrid
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 TopologyVPPGrid 資料轉置後匯入
+
+Description: 虛擬電網資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TopologyVPPGrid
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyVPPGridID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp 編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TopologyVPPGrid”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>vpp名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>displayName
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(200)
+   </td>
+   <td>顯示名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>description
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(max)
+   </td>
+   <td>vpp說明
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vppType
+   </td>
+   <td>1..1
+   </td>
+   <td>CodeDisplay!
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp類別
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+pv | pvess | pvessload | …
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vppConfigRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(TopologyVPPConfig!)→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp設定參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vppNodeRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([TopologyNode])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>vpp node 參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vppFlowRef
+   </td>
+   <td>0..*
+   </td>
+   <td>Reference([TopologyFlow])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>vpp flow 參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TrialBalanceMain (RE平台新增Table) Betty
+
+Source：RE平台售電試算結果主檔
+
+Description：
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TrialBalanceMain
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trialBalanceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(11)
+   </td>
+   <td>試算編號
+   </td>
+   <td>ID
+<p>
+編碼規則：日期(8碼) + 流水號(3碼)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TrialBalanceMain”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Load!)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>購電公司
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumbers
+   </td>
+   <td>1..*
+   </td>
+   <td>[String!]
+   </td>
+   <td>
+   </td>
+   <td>varchar(15)[]
+   </td>
+   <td>電號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>sumLoadPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>總用電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectReRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,5)
+   </td>
+   <td>設定 RE 比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectRePower
+   </td>
+   <td>0..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>int
+   </td>
+   <td>設定 RE 用電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>transPrice
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>numeric(5,4)
+   </td>
+   <td>綠電轉供價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>minThreshold
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,5)
+   </td>
+   <td>最小比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>limitGenerations
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>smallint
+   </td>
+   <td>限制間數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>startDate
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>評估數據起日
+   </td>
+   <td>格式：MM-DD
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>endDate
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(5)
+   </td>
+   <td>評估數據迄日
+   </td>
+   <td>格式：MM-DD
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(1)
+   </td>
+   <td>資料狀態
+   </td>
+   <td>E = 轉供評估中 \ F = 無法評估 \ Y = 正常  \  D = 刪除
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### TrialBalanceSub (RE平台新增Table)  Betty
+
+Source：RE平台售電試算結果明細檔
+
+Description：
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>TrialBalanceSub
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>trialBalanceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(11)
+   </td>
+   <td>試算編號
+   </td>
+   <td>ID
+<p>
+編碼規則：日期(8碼) + 流水號(3碼)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “TrialBalanceSub”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>seq
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(3)
+   </td>
+   <td>序號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>matchObject
+   </td>
+   <td>1..*
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>匹配案場
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- companyRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Company)
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>公司ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object)
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>案場ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- capacity
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>案場容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- price
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>躉售價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- yearPowerSum
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>年度發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- matchRate
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>尚可匹配比例
+   </td>
+   <td>目前預設為 1（100%）
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- settingMatchRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>手動設定比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- evaluateMatchRate
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>評估匹配比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- sellAveragePrice
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>售電平均單價
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- sellPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>綠電售電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- sellPowerRate
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>綠電售電率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- yearLimitation
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>最大售電限制 (年)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- monthLimitation
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>最大售電限制 (月)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-acquisitionPrice 
+   </td>
+   <td>0..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>電力取得價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-revenueSharingR<a href="https://dictionary.cambridge.org/dictionary/english-chinese-traditional/ratio">atio</a>
+   </td>
+   <td>0..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>抽成比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-greenSellPrice
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>綠電售電價格
+   </td>
+   <td>公式：
+<p>
+保底價格：以「電力取得價格」為主，無則「躉售價格」
+<p>
+保底價格 + (綠電轉供價格 - 保底價格) * 抽成比例
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-revenue
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>營收
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>matchPowerNumber
+   </td>
+   <td>1..*
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>匹配電號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- powerNumberRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(LoadSubInfo)
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>電號ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- useAveragePrice
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>用電平均單價
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- addPowerCost
+   </td>
+   <td>1..1
+   </td>
+   <td>int
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>增加用電成本
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|- timePriceID
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>時間電價類型
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td><del>sellAveragePrice</del>
+   </td>
+   <td><del>0..1</del>
+   </td>
+   <td><del>Float</del>
+   </td>
+   <td>
+   </td>
+   <td><del>numeric(6,4)</del>
+   </td>
+   <td><del>售電平均單價</del>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td><del>matchCapacitySum</del>
+   </td>
+   <td><del>0..1</del>
+   </td>
+   <td><del>Float</del>
+   </td>
+   <td>
+   </td>
+   <td><del>numeric(15,5)</del>
+   </td>
+   <td><del>匹配售電總容量</del>
+   </td>
+   <td>公式：加總（案場容量 *  評估匹配比例）
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td><del>matchSellPowerSum</del>
+   </td>
+   <td><del>0..1</del>
+   </td>
+   <td><del>Float</del>
+   </td>
+   <td>
+   </td>
+   <td><del>numeric(16,8)</del>
+   </td>
+   <td><del>總銷售發電量</del>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td><del>sellPower</del>
+   </td>
+   <td><del>0..1</del>
+   </td>
+   <td><del>Float</del>
+   </td>
+   <td>
+   </td>
+   <td><del>numeric(16,8)</del>
+   </td>
+   <td><del>綠電銷售電量</del>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td><del>surplusPower</del>
+   </td>
+   <td><del>0..1</del>
+   </td>
+   <td><del>Float</del>
+   </td>
+   <td>
+   </td>
+   <td><del>numeric(16,8)</del>
+   </td>
+   <td><del>綠電躉售電量</del>
+   </td>
+   <td>公式：總銷售發電量 - 綠電銷售電量
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td><del>sellPowerRate</del>
+   </td>
+   <td><del>0..1</del>
+   </td>
+   <td><del>Float</del>
+   </td>
+   <td>
+   </td>
+   <td><del>numeric(6,5)</del>
+   </td>
+   <td><del>綠電售電率</del>
+   </td>
+   <td>公式：綠電銷售電量 / 總銷售發電量
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>generatorDatas
+   </td>
+   <td>0..*
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>發電端資料
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-companyRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Company)
+   </td>
+   <td>
+   </td>
+   <td>json - string
+   </td>
+   <td>公司ID
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-greenSellPrice
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>平均綠電售電價格
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-sellAveragePrice
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>售電平均單價
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-matchCapacitySum
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>匹配售電總容量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-matchSellPowerSum
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>總銷售發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-sellPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>綠電銷售電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-surplusPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>綠電躉售電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-sellPowerRate
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>綠電售電率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-revenue
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>json - number
+   </td>
+   <td>營收
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>costSales
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(19,4)
+   </td>
+   <td>收購成本(售電端)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>revenueSales
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(19,4)
+   </td>
+   <td>售電收入(售電端)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>evaluateReRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,5)
+   </td>
+   <td>評估 RE 比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadAveragePrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,4)
+   </td>
+   <td>用電平均單價
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadPowerSum
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16,8)
+   </td>
+   <td>總用電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadGrayPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16,8)
+   </td>
+   <td>灰電用電量
+   </td>
+   <td>公式：總用電量 - 綠電銷售電量
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>matchResult
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar
+   </td>
+   <td>匹配結果
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(1)
+   </td>
+   <td>資料狀態
+   </td>
+   <td>E = 轉供評估中 \ F = 無法評估 \ Y = 正常  \  D = 刪除
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### Users (temp)
+
+Data Import：
+
+Description: 使用者檔，僅EMS暫時使用，待後續建立完整的權限管控
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Users
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>userID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>AWS Cognito 使用者識別碼
+   </td>
+   <td>UUID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>companyRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference([Company])→
+   </td>
+   <td>
+   </td>
+   <td>varchar(100)[]
+   </td>
+   <td>Company 參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>omProps
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJSON
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>使用 O&M2.0 系統
+<p>
+的個人設定檔
+   </td>
+   <td>忘記做什麼用的，想不起來的話就刪掉
+   </td>
+  </tr>
+</table>
+
+
+
+#### VPPDailyIncomeRecord
+
+Source: VppPowerRecord 與 DynamoDB 的 rfdme-vpp-paoc-workflow-log-tb
+
+Description: 記錄虛擬電網的每日收益總和
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>VPPDailyIncomeRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyVPPGridID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp 編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>日期
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “VPPDailyIncomeRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectIncome
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12, 5)
+   </td>
+   <td>調度預期收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>monitorIncome
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12, 5)
+   </td>
+   <td>監控推估收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>realIncome
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12, 5)
+   </td>
+   <td>實際收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectCost
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12, 5)
+   </td>
+   <td>預期成本
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>monitorCost
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12, 5)
+   </td>
+   <td>監控推估成本
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectRe
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6, 5)
+   </td>
+   <td>預期Re
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### VPPPowerRecord
+
+Source: 
+
+    太陽能實際發電：**PostgreSQL.CorrectionPower.powerPerUT (UTC時區 +0)**
+
+    儲能實際電量：Timestream.rfdme-ess-data-test-tb.activePower (UTC時區 +0)
+
+    負戴實際電量：Timestream.rfdme-load-data-test-tb.loadPerUT (UTC時區 +0)
+
+Description: 拆解各裝置於該時間的電量來源，以計算RE比例、發電售電率等資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>VPPPowerRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyVPPGridID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp 編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每5分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “VPPPowerRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>loadPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>負載+可控負載(充電椿)
+   </td>
+   <td>單位：kWh \
+每15分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pvPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>太陽能發電(轉供)
+   </td>
+   <td>單位：kWh \
+台灣時間05:00 - 20:00以外不會有發電資料
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>windPerUT
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>風力發電(轉供)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>selfPerUT
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>自發自用發電
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essPerUT
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>儲能
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pvToEss
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>太陽能供儲能
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pvToLoad
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>太陽能供負載
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pvToGrid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>太陽能供台電
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essToLoad
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>儲能供負載
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essToGrid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>儲能供台電
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingToEss
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>綠電轉供供儲能
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingToLoad
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>綠電轉供供負載
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingToGrid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>綠電轉供供台電
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>selfToEss
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>自發供儲能
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>selfToLoad
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>自發供負載
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>selfToGrid
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>自發供台電
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>income
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12,5)
+   </td>
+   <td>推估收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>status
+   </td>
+   <td>1..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>char(1)
+   </td>
+   <td>狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>gridToEss
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>電網供儲能
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>gridToLoad
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,10)
+   </td>
+   <td>電網供負載
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>cost
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(12,5)
+   </td>
+   <td>成本
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### VPPTargetRecord
+
+Source: 
+
+Description: 拆解各裝置於該時間的電量來源、時間電價，以計算RE比例、發電售電等指標資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>VppTargetRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>topologyVPPGridID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(100)
+   </td>
+   <td>vpp 編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime!
+   </td>
+   <td>PK
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每5分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “VPPPowerRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>re
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(8,5)
+   </td>
+   <td>re比
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>gray
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>灰電使用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>green
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>綠電使用電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essAchieveRate
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(8,5)
+   </td>
+   <td>儲能達成率
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>monitorIncome
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>監控推估收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>monitorCost
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>監控推估成本
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pvFitIncome
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>太陽能躉售收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>pvFitPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>太陽能躉售電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essFitIncome
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>儲能躉售收益
+   </td>
+   <td>單位：元
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>essFitPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td>儲能躉售電量
+   </td>
+   <td>單位：kWh
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>綠電轉供用電量</code>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>selfPower
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>自發自用用電量</code>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>uncontrolledBill
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>未調度用電費推估</code>
+   </td>
+   <td><code>預估未經調度的用電量(負載用電+充電椿用電) * 時間電價 + 契約容量罰款</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>monitorBill
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>實際電費推估</code>
+   </td>
+   <td><code>灰電輸入的電量 * 時間電價 + (綠電轉供*綠電轉供價格) + 契約容量罰款</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>saveBill
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>電費節約</code>
+   </td>
+   <td><code>未調度用電費推估-實際電費推估</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>usedPowerBill
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>用電電費推估</code>
+   </td>
+   <td><code>總電費：(灰電輸入*灰電時間電價) + (綠電轉供*綠電轉供價格)</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>avgPowerPrice
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>平均電價</code>
+   </td>
+   <td><code>總電費(用電電費推估) / 用電量(灰電輸入 + 綠電轉供)</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>contractFine
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>契約容量罰金推估</code>
+   </td>
+   <td><code>推估罰金</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>saveFine
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>契約容量超約避免</code>
+   </td>
+   <td><code>推估未經調度的罰金 - 推估罰金</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>greenEffective
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(15,5)
+   </td>
+   <td><code>綠能效益</code>
+   </td>
+   <td><code>自發自用的綠能帶來的效益</code>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>因為是轉入的資料，可以不寫 crUser / txUser
+   </td>
+  </tr>
+</table>
+
+
+
+#### WeatherStationData
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 WeatherStationData 資料轉置後匯入
+
+Source: 氣象局縣市測站列表 ( [https://www.cwb.gov.tw/V8/C/W/OBS_County.html?ID=10017](https://www.cwb.gov.tw/V8/C/W/OBS_County.html?ID=10017) )
+
+Description: 觀測測站數據
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>WeatherStationData
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>weatherStationID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>觀測測站編號
+   </td>
+   <td>ID
+<p>
+編碼規則：沿用氣象局的測站代號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “WeatherStationData”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>date
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDate!
+   </td>
+   <td>PK
+   </td>
+   <td>date
+   </td>
+   <td>記錄日期
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>temperature
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(5,2)
+   </td>
+   <td>溫度
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>weather
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(20)
+   </td>
+   <td>天氣
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>humidity
+   </td>
+   <td>0..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(10,5)
+   </td>
+   <td>濕度
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### WeatherStationInfo
+
+Data Import：RFDME AWS RDS 的 asset 資料庫，將 WeatherStationInfo 資料轉置後匯入
+
+Source: 氣象局現存測站列表 ( [https://e-service.cwb.gov.tw/wdps/obs/state.htm](https://e-service.cwb.gov.tw/wdps/obs/state.htm) )   ← 請 Jerry 更新說明
+
+Description: 觀測測站基本資料
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>WeatherStationInfo
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>weatherStationID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>觀測測站編號
+   </td>
+   <td>ID
+<p>
+編碼規則：沿用氣象局的測站代號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “WeatherStationInfo”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>觀測測站名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>location
+   </td>
+   <td>0..1
+   </td>
+   <td>GeoLocation
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>觀測測站地理位置
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>address
+   </td>
+   <td>0..1
+   </td>
+   <td>Address
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>觀測測站地址
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+####  WheelingGenPowerRawRecord
+
+Source：RE平台上傳
+
+Description：記錄 RE 平台發電端發電資料之記錄
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>WheelingGenPowerRawRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingGenPowerRawRecordID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>用電資料編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “WheelingGenPowerRawRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object!)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>時間
+   </td>
+   <td>每 15 分鐘一筆
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerPerUT
+   </td>
+   <td>1..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16,8)
+   </td>
+   <td>該 15 分鐘累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerSum
+   </td>
+   <td>1..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(16,8)
+   </td>
+   <td>當日累積發電量
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### WheelingGenPowerRecord
+
+Source：CorrectionPower 轉換
+
+Description：記錄 RE 平台針對發電端產電資料之記錄
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>WheelingGenPowerRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingGenPowerRecordID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>發電資料編號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “WheelingGenPowerRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>計價類型代碼
+   </td>
+   <td><strong>對應到 TPCPowerBill.kindValue</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object!)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>yearMonth
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(8)
+   </td>
+   <td>發電歸納年月
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>peakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>尖峰發電度數
+   </td>
+   <td>無條件捨去至整數
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>halfPeakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>半尖峰發電度數
+   </td>
+   <td>無條件捨去至整數
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>satHalfPeakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2))
+   </td>
+   <td>週六半尖峰發電度數
+   </td>
+   <td>無條件捨去至整數
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>offPeakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>離峰發電度數
+   </td>
+   <td>無條件捨去至整數
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### WheelingUsePowerRecord
+
+Source：LoadBill 或 LoadPower15 轉換
+
+Description：記錄 RE 平台針對負載端用電資料之記錄
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>WheelingUsePowerRecord
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>wheelingUsePowerRecordID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>用電資料流水號
+   </td>
+   <td>ID
+<p>
+編碼規則：流水號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “WheelingUsePowerRecord”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object!)
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumber
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>負載場電號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceType
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>計價類型代碼
+   </td>
+   <td><strong>對應到 SystmeConfig.systmeConfigID = '3'</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>yearMonth
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(8)
+   </td>
+   <td>電費單歸類年月
+   </td>
+   <td>台灣日期
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>peakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>尖峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>halfPeakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>半尖峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>satHalfPeakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>週六半尖峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>offPeakPower
+   </td>
+   <td>1..1
+   </td>
+   <td>Int!
+   </td>
+   <td>
+   </td>
+   <td>numeric(10, 2)
+   </td>
+   <td>離峰用電度數
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### WindFarm （01.04新增）
+
+Data Import：轉入 Object 資料時，將屬於風力型案場的部分轉入
+
+Description：風力發電場資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>PK
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>WindFarm
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>windFarmID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>風力案場編號
+   </td>
+   <td>同 objectRef
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “WindFarm”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>負載場名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(Object)&lt;→ 
+   </td>
+   <td>
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>meterBeginDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>
+   </td>
+   <td>date
+   </td>
+   <td>掛表日
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maxMatch
+   </td>
+   <td>1..1
+   </td>
+   <td>Float
+   </td>
+   <td>
+   </td>
+   <td>numeric(6,5)
+   </td>
+   <td>最大匹配比例
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+## (附錄)Data Model between Databases & GraphQL
+
+
+
+* Design Data Structure between Data Model, RDB, and GraphQL
+* 4 Level Data Structures
+    * Level1 - Foundation Type
+        * Primitive Type  \
+→ AppSync: Primitive Type 	 \
+→ RDB: Primitive Type except Json
+        * Custom type Data Model base (The type of field in Custom type are all in Level1 Foundation Type) 	 \
+→ AppSync: Custom Type	 \
+→ RDB: Json e.g., Money, Period, HumanName, Timing, Ratio, Address......
+            * Rule1: Appsync type names should be UpperCamelCase , with the first letter of every word capitalized 
+            * Rule2: The field name in type of Appsync is mapping to the DB table field, which is lowerCamelCase
+    * Level2 - Concepts in Energy System             	 \
+→  AppSync: Custom Type             	 \
+→  RDB: Table/ Timestream: Table
+        * Project Related
+        * Object Related
+        * O&M Related
+        * VPP Related
+        * Financial Related
+        * Sensor Data Related
+
+        Rule1: If a field name is referring to one of type in Appsync, then the filed name has to be ending with “Ref” \
+Rule2: Appsync enum values have to be lowercase except the enum values are designed as Level2 Type
+
+* Level3 – Work Process              	 \
+→  AppSync: type Query {process functionality}
+        * Project Process
+        * O&M Process
+        * VPP Process
+        * Financial Process
+        * Service Process
+    * Level4 – Application →  Service Oriented Architecture
+* Nullability rules with lists
+
+<table>
+  <tr>
+   <td>
+GraphQL Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>A nullable type values
+   </td>
+  </tr>
+  <tr>
+   <td>[type]
+   </td>
+   <td>A list of nullable type values
+   </td>
+  </tr>
+  <tr>
+   <td>type!
+   </td>
+   <td>A non-nullable of nullable type values
+   </td>
+  </tr>
+  <tr>
+   <td>[type!]!
+   </td>
+   <td>A non-nullable list of non-nullable type values
+   </td>
+  </tr>
+</table>
+
+
+
+## (附錄)Level 1 : Foundation Type
+
+
+### Primitive Type
+
+Source：AWS AppSync Supportted Types
+
+Description:  以 AppSync Type 為底，向上擴充。 \
+
+
+
+<table>
+  <tr>
+   <td>Type
+   </td>
+   <td>Value Domain
+   </td>
+  </tr>
+  <tr>
+   <td>ID
+   </td>
+   <td>A unique identifier for an object. <strong>This scalar is serialized like a string but isn't meant to be human-readable.</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Boolean
+   </td>
+   <td>true | false
+   </td>
+  </tr>
+  <tr>
+   <td>String
+   </td>
+   <td>string type
+   </td>
+  </tr>
+  <tr>
+   <td>Int
+   </td>
+   <td>-2^(31) and 2^(31) -1
+   </td>
+  </tr>
+  <tr>
+   <td>Float
+   </td>
+   <td>decimal representation
+   </td>
+  </tr>
+  <tr>
+   <td>base64Binary
+   </td>
+   <td>base64 encoded
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>AWSDate
+   </td>
+   <td>An extended <a href="https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates">ISO 8601 date</a> string in the format YYYY-MM-DD.
+   </td>
+  </tr>
+  <tr>
+   <td>AWSTime
+   </td>
+   <td>An extended <a href="https://en.wikipedia.org/wiki/ISO_8601#Times">ISO 8601 time</a> string in the format hh:mm:ss.sss.
+   </td>
+  </tr>
+  <tr>
+   <td>AWSDateTime
+   </td>
+   <td>An extended <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations">ISO 8601 date and time</a> string in the format YYYY-MM-DDThh:mm:ss.sssZ.
+   </td>
+  </tr>
+  <tr>
+   <td>AWSTimestamp
+   </td>
+   <td>An integer value representing the number of seconds before or after 1970-01-01-T00:00Z.
+   </td>
+  </tr>
+  <tr>
+   <td>AWSJSON
+   </td>
+   <td>A JSON string. Any valid JSON construct is automatically parsed and loaded in the resolver mapping templates as maps, lists, or scalar values rather than as the literal input strings. Unquoted strings or otherwise invalid JSON result in a GraphQL validation error.
+   </td>
+  </tr>
+  <tr>
+   <td>AWSURL
+   </td>
+   <td>A URL as defined by <a href="https://tools.ietf.org/html/rfc1738">RFC 1738</a>. For example, https://www.amazon.com/dp/B000NZW3KC/ or mailto:example@example.com. URLs must contain a schema (http, mailto) and can't contain two forward slashes (//) in the path part.
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>enum
+   </td>
+   <td>(Actually not a type) Indicates that the value is taken from a set of controlled strings
+   </td>
+  </tr>
+</table>
+
+
+
+### Custom Types
+
+
+#### #CodeDisplay
+
+Description: 有需要顯示具可閱讀性之名稱的代碼轉換結構，e.g. 下拉式選單
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>JSON Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>CodeDisplay
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>code
+   </td>
+   <td>enum
+   </td>
+   <td>json - string
+   </td>
+   <td>下拉式選單的代碼
+<p>
+以 Address 的 use 欄位為例，此處會儲存 home | work  …
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>display
+   </td>
+   <td>Reference(UNION( ChineseDisplay | EnglishDisplay | JapanDisplay …))
+   </td>
+   <td>json - string
+   </td>
+   <td>下拉式選單的名稱
+<p>
+依據呼叫 API 時傳入之語系參數，來決定要讀取哪一張語系表，再透過 code 欄位作為對應，找出該語系的名稱，此欄位不額外存於資料庫。資料的參考直接由code當作key來對table查詢。
+   </td>
+  </tr>
+</table>
+
+
+
+#### Address
+
+Description:  地址資料結構 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>JSON Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Address
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>use
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>json - string
+   </td>
+   <td>只記錄 CodeDisplay 中的 code 值
+<p>
+home | work | temp | old | billing | project | object - purpose of this address
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>text
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>完整地址
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>line
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>Street name, number, direction & P.O. Box etc.
+<p>
+不含縣市/鄉鎮區的地址部分
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>city
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>Name of city, town etc.
+<p>
+直轄市/縣
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>district
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>District name (aka county)
+<p>
+縣轄市/鄉/鎮/區
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>Sub-unit of country (abbreviations ok)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>postalCode
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>Postal code for area
+<p>
+郵遞區號
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>country
+   </td>
+   <td>String
+   </td>
+   <td>json - string
+   </td>
+   <td>Country (e.g. can be ISO 3166 2 or 3 letter code)
+<p>
+國家
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>period
+   </td>
+   <td>Period
+   </td>
+   <td>json - object
+   </td>
+   <td>Time period when address was/is in use
+<p>
+有效區間
+   </td>
+  </tr>
+</table>
+
+
+
+#### ContactPoint
+
+Description:  聯絡資訊資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>ContactPoint
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>system
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>phone | fax | email | pager | url | sms | other
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>value
+   </td>
+   <td>String
+   </td>
+   <td>The actual contact point details
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>use
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>home | work | temp | old | mobile - purpose of this contact point
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>rank
+   </td>
+   <td>Int
+   </td>
+   <td>Specify preferred order of use (1 = highest)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>period
+   </td>
+   <td>Period
+   </td>
+   <td>Time period when the contact point was/is in use
+   </td>
+  </tr>
+</table>
+
+
+
+#### GeoLocation
+
+Description：經緯度資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>GeoLocation
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>latitude
+   </td>
+   <td>Float
+   </td>
+   <td>Latitude is a measurement on a globe or map of location north or south of the Equator. 
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>longitude
+   </td>
+   <td>Float
+   </td>
+   <td>Longitude is a measurement of location east or west of the prime meridian at Greenwich, the specially designated imaginary north-south line that passes through both geographic poles and Greenwich, London. 
+   </td>
+  </tr>
+</table>
+
+
+
+#### HumanName
+
+Description：人名資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>HumanName
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>text
+   </td>
+   <td>String
+   </td>
+   <td>Text representation of the full name
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>family
+   </td>
+   <td>String
+   </td>
+   <td>Family name (often called 'Surname')
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>given
+   </td>
+   <td>[String]
+   </td>
+   <td>Given names (not always 'first'). Includes middle names
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>prefix
+   </td>
+   <td>[String]
+   </td>
+   <td>Parts that come before the name
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>suffix
+   </td>
+   <td>[String]
+   </td>
+   <td>Parts that come after the name. e.g. Mr.
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>period
+   </td>
+   <td>Period
+   </td>
+   <td>Time period when name was/is in use. e.g. PhD, Senior
+   </td>
+  </tr>
+</table>
+
+
+
+#### Money
+
+Description：貨幣與貨幣別資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Money
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>value
+   </td>
+   <td>Float
+   </td>
+   <td>Amount of money
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>currency
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>ISO 4217 Currency Code
+   </td>
+  </tr>
+</table>
+
+
+
+#### Period
+
+Description：日期時間區間結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Period
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>+ Rule: If present, start SHALL have a lower value than end
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>start
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>Starting time with inclusive boundary
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>end
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>End time with inclusive boundary, if not ongoing
+   </td>
+  </tr>
+</table>
+
+
+
+#### Quantity
+
+Description：測量值的單位與數值，或用以描述某值與此欄位標示之值的關係
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Quantity
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>A measured or measurable amount + Rule: If a code for the unit is present, the system SHALL also be present
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>value
+   </td>
+   <td>Float
+   </td>
+   <td>Numerical value (with implicit precision)
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>comparator
+   </td>
+   <td>enum
+   </td>
+   <td>&lt; | &lt;= | >= | > - how to understand the value
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>unit
+   </td>
+   <td>String
+   </td>
+   <td>Unit representation
+   </td>
+  </tr>
+</table>
+
+
+
+
+* The value contains the numerical value of the quantity, including an implicit precision. If no comparator is specified, the value is a point value (i.e. '='). The comparator  element can never be ignored.
+* SimpleQuantity: The comparator is not used on a SimpleQuantity
+
+
+#### Range
+
+Description：範圍的資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Range
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>+ Rule: If present, low SHALL have a lower value than high
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>low
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>Low limit
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>high
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>High limit
+   </td>
+  </tr>
+</table>
+
+
+
+#### Dimensitons
+
+Description：物體的長寬高資料結構 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Dimenstions
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>length
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>length of object
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>width
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>width of object
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>height
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>height of object
+   </td>
+  </tr>
+</table>
+
+
+
+#### Ratio
+
+Description：A ratio of two Quantity values - a numerator and a denominator \
+Examples where a Ratio is used are: titers (e.g. 1:128); concentration ratios where the denominator is significant (e.g. 5mg/10mL); observed frequencies (e.g. 2 repetitions/8 hr)
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Ratio
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>+ Rule: If present, start SHALL have a lower value than end
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>numerator
+   </td>
+   <td>Quantity
+   </td>
+   <td>Numerator value
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>denominator
+   </td>
+   <td>Quantity
+   </td>
+   <td>Denominator value
+   </td>
+  </tr>
+</table>
+
+
+
+#### Timing
+
+Description：描述資料的頻率，次數，區間等時間定義資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Timing
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>event
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>When the event occurs
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>repeat
+   </td>
+   <td>
+   </td>
+   <td>When the event is to occur  \
++ Rule: if there's a duration, there needs to be duration units  \
++ Rule: if there's a period, there needs to be period units  \
++ Rule: duration SHALL be a non-negative value  \
++ Rule: period SHALL be a non-negative value  \
++ Rule: If there's a periodMax, there must be a period  \
++ Rule: If there's a durationMax, there must be a duration  \
++ Rule: If there's a countMax, there must be a count  \
++ Rule: If there's an offset, there must be a when (and not C, CM, CD, CV)  \
++ Rule: If there's a timeOfDay, there cannot be a when, or vice versa
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-count
+   </td>
+   <td>Int
+   </td>
+   <td>Number of times to repeat
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-countMax
+   </td>
+   <td>Int
+   </td>
+   <td>Maximum number of times to repeat
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-duration
+   </td>
+   <td>Float
+   </td>
+   <td>How long when it happens
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-durationMax
+   </td>
+   <td>Float
+   </td>
+   <td>How long when it happens (Max)
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-durationUnit
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>s | min | h | d |wk | mo | y
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-frequency
+   </td>
+   <td>Int
+   </td>
+   <td>Event occurs frequency times per period
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-frequencyMax
+   </td>
+   <td>Int
+   </td>
+   <td>Event occurs up to frequencyMax times per period
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-period
+   </td>
+   <td>Float
+   </td>
+   <td>a length or portion of time
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-periodMax
+   </td>
+   <td>Float
+   </td>
+   <td>Upper limit of period
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-periodUnit
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>s | min | h | d |wk | mo | y
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-dayOfWeek
+   </td>
+   <td>CodeDisplay
+   </td>
+   <td>mon | tue | wed | thu | fri | sat | sun 
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-timeOfDay
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>Time of day for action
+   </td>
+  </tr>
+</table>
+
+
+
+
+* Example
+
+<table>
+  <tr>
+   <td>
+code
+   </td>
+   <td>duration
+   </td>
+   <td>durationUnit
+   </td>
+   <td>frequency
+   </td>
+   <td>frequencyMax
+   </td>
+   <td>period
+   </td>
+   <td>periodUnit
+   </td>
+   <td>periodMax
+   </td>
+   <td>Day of Week
+   </td>
+   <td>Time of Day
+   </td>
+  </tr>
+  <tr>
+   <td>Every 8 hour
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>
+   </td>
+   <td>8
+   </td>
+   <td>h
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Every 7 days
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>
+   </td>
+   <td>7
+   </td>
+   <td>d
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Every 4-6 hours
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>
+   </td>
+   <td>4
+   </td>
+   <td>h
+   </td>
+   <td>6
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>3 times a day
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>3
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>d
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>3-4 times a day
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>3
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>d
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Every 21 days for 1 hour
+   </td>
+   <td>1
+   </td>
+   <td>h
+   </td>
+   <td>1
+   </td>
+   <td>
+   </td>
+   <td>21
+   </td>
+   <td>d
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Three times a week for 0.5 hour
+   </td>
+   <td>0.5
+   </td>
+   <td>h
+   </td>
+   <td>3
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>wk
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Mon, Wed, Fri
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>mon | wed | fri
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Every day at 10am
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>
+   </td>
+   <td>1
+   </td>
+   <td>d
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>10:00
+   </td>
+  </tr>
+</table>
+
+
+
+#### RecordLog
+
+Description：資料日誌，產生資料與修改資料的人員與時間之資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>RecordLog
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crUser
+   </td>
+   <td>Cognito
+   </td>
+   <td>Cognito User Reference who create record
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>crDate
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>DateTime that user create record
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>txUser
+   </td>
+   <td>Cognito
+   </td>
+   <td>Cognito User Reference who modify record
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>txDate
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>DateTime that user modify record
+   </td>
+  </tr>
+</table>
+
+
+
+## (附錄)Level 2 : Concepts in the Energy System
+
+
+### Backbone Element
+
+
+#### NodeUnion
+
+Description：用於當某欄位參照多個Tables，且參照只限於某tables時，使用node來描述資料結構 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>NodeUnion
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>多元資料參考節點
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>system
+   </td>
+   <td>1..1
+   </td>
+   <td>enum
+   </td>
+   <td>json - string
+   </td>
+   <td>節點列舉
+   </td>
+   <td>exactly identical to table name
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>systemRef
+   </td>
+   <td>1..1
+   </td>
+   <td>union type
+   </td>
+   <td>json - string
+   </td>
+   <td>節點參考
+   </td>
+   <td>foreign key of reference table
+   </td>
+  </tr>
+</table>
+
+
+
+#### NodeProps
+
+Description：用於當某欄位儲存多個參數時 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>NodeProps
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>多元資料參考節點
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>system
+   </td>
+   <td>1..1
+   </td>
+   <td>enum
+   </td>
+   <td>json - string
+   </td>
+   <td>節點列舉
+   </td>
+   <td>node enum
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>systemProps
+   </td>
+   <td>1..1
+   </td>
+   <td>AWSJSON!
+   </td>
+   <td>json - object
+   </td>
+   <td>節點參數
+   </td>
+   <td>node parameters in json
+   </td>
+  </tr>
+</table>
+
+
+
+#### FileProps
+
+Description：記錄儲存在 S3 的檔案資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>FileProps
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>多元資料參考節點
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>fileID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>json - string
+   </td>
+   <td>檔案識別碼
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>fileName
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>json - string
+   </td>
+   <td>檔案名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### Portfolio
+
+Description：物品的履歷資料結構
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Portfolio
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>constructerRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)→
+   </td>
+   <td>varchar
+   </td>
+   <td>建造參考
+   </td>
+   <td><strong>used in objects that constructed on specific location</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>constructionDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>date
+   </td>
+   <td>建造日期
+   </td>
+   <td>construction date
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>manufacturerRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)→
+   </td>
+   <td>varchar
+   </td>
+   <td>製造參考
+   </td>
+   <td><strong>used in objects that are made in factories.</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>manufactureDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>date
+   </td>
+   <td>製造日期
+   </td>
+   <td>manufacture date
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>vendorRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)→
+   </td>
+   <td>varchar
+   </td>
+   <td>供應商
+   </td>
+   <td>vendor company reference
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>installationDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>date
+   </td>
+   <td>安裝日期
+   </td>
+   <td>date of installation
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>operationRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)→
+   </td>
+   <td>varchar
+   </td>
+   <td>運營商
+   </td>
+   <td>operation company reference
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>operationByDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>date
+   </td>
+   <td>運營起始日期
+   </td>
+   <td>operation start date
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>maintenanceRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)→
+   </td>
+   <td>varchar
+   </td>
+   <td>維運商
+   </td>
+   <td>maintenance company reference
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expectedServiceLife
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>integer
+   </td>
+   <td>預期使用年限
+   </td>
+   <td>expected numbers of year that object work properly
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>expirationDate
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDate
+   </td>
+   <td>date
+   </td>
+   <td>過期失效日期
+   </td>
+   <td>expiratioin date
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>rfdmeAssetRef
+   </td>
+   <td>0..1
+   </td>
+   <td>ID
+   </td>
+   <td>
+   </td>
+   <td>微電資產參考
+   </td>
+   <td>reference of Rfdme asset system
+   </td>
+  </tr>
+</table>
+
+
+
+#### Model
+
+Description：裝置型號等資訊 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Model
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>modelNumber
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>型號
+   </td>
+   <td>unique number given to each product made by computer hardware manufacturers
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>brand
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Company)
+   </td>
+   <td>varchar
+   </td>
+   <td>廠牌
+   </td>
+   <td>brand
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>itemWeight
+   </td>
+   <td>0..1
+   </td>
+   <td>SimpleQuantity
+   </td>
+   <td>json
+   </td>
+   <td>物品重量
+   </td>
+   <td>item weight
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>itemDimenstions
+   </td>
+   <td>0..1
+   </td>
+   <td>Dimensions
+   </td>
+   <td>json
+   </td>
+   <td>物品大小
+   </td>
+   <td>item’s depth, width, and height
+   </td>
+  </tr>
+</table>
+
+
+
+#### EdgeState
+
+Description：邊緣端設備狀態
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>EdgeState
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference
+   </td>
+   <td>varchar
+   </td>
+   <td>設備參考
+   </td>
+   <td>edge devices reference
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>設備狀態
+   </td>
+   <td>true : on/work/live false：off/dead
+   </td>
+  </tr>
+</table>
+
+
+
+#### Ownership
+
+Description：所有權相關資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>edgeState
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>json
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerPerson
+   </td>
+   <td>0..1
+   </td>
+   <td>HumanName
+   </td>
+   <td>json
+   </td>
+   <td>所有權擁有者
+   </td>
+   <td>ownership person
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownerCompany
+   </td>
+   <td>0..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>所有權擁有公司
+   </td>
+   <td>ownership company
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownershipPeriod
+   </td>
+   <td>0..1
+   </td>
+   <td>Period
+   </td>
+   <td>json
+   </td>
+   <td>所有權擁有期間
+   </td>
+   <td>owenrship period
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ownershipByYear
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>integer
+   </td>
+   <td>所有權第幾年開始持有
+   </td>
+   <td>amount of years that holding object since it starting operation
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>idOwnership
+   </td>
+   <td>0..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>所有權原擁有編號
+   </td>
+   <td>ID of previous ownership Database
+   </td>
+  </tr>
+</table>
+
+
+
+### General Concepts
+
+
+### Interface
+
+
+#### Person
+
+Description：人員
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Person
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>personID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Person”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>1..1
+   </td>
+   <td>HumanName!
+   </td>
+   <td>json
+   </td>
+   <td>名稱
+   </td>
+   <td>person name
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>address
+   </td>
+   <td>0..1
+   </td>
+   <td>Address
+   </td>
+   <td>json
+   </td>
+   <td>地址
+   </td>
+   <td>person address
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>contactInfo
+   </td>
+   <td>0..*
+   </td>
+   <td>[ContactPoint]
+   </td>
+   <td>json
+   </td>
+   <td>聯絡資訊
+   </td>
+   <td>person contact
+   </td>
+  </tr>
+</table>
+
+
+
+#### @State
+
+Description：邊緣中心節點狀態 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>State
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodeID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>邊緣中心節點編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “State”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>coreDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>json
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>enum
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice
+   </td>
+   <td>rfdmeraspberry | advantechlogger | some energy manage system | …
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(UNION!)
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>json
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference( ClientDevice!)
+   </td>
+   <td>varchar
+   </td>
+   <td>clientDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>locationObjectID
+   </td>
+   <td>0..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>位置案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>json
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### @Error
+
+Description：邊緣裝置錯誤資料 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Error
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>errorID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>邊緣中心節點編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>time
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “State”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>coreDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>json
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>enum
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice
+   </td>
+   <td>rfdmeraspberry | advantechlogger | some energy manage system | …
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(UNION!)
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>json
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference( ClientDevice!)
+   </td>
+   <td>varchar
+   </td>
+   <td>clientDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>locationObjectID
+   </td>
+   <td>0..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>位置案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>json
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+### Object related
+
+
+
+* 參考資料：https://docs.google.com/document/d/1o-c7WkiQcAjtZq-F6FwJfq_1f188n2mL/edit
+* 
+
+<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image2.png "image_tooltip")
+diagram from Jeremy \
+- MB標示為監控箱
+* 單變站與低壓段都為案場，都有各自的LocationObjectID和ObjectID
+* 一個監控箱(EdgeCenterNode) 會對應一個案場 也可以對應多個案場
+* 一個案場可能不會對應監控箱，也可以對應一個監控箱。但最多一個！
+* SP：有的SP會位於單變站，但它實際上是收低壓段的值。
+* 如果需要Object與LocationObject的關係，到Object拿。
+* 如果需要Object與EdgeCenterNode的關係，到Object拿。
+* 如果需要ClientDevice的Object和LocationObject關係，到ClientDevice拿
+
+
+### Project related
+
+
+#### ＋FundPortfolio
+
+Data Import：
+
+Description：資金履歷資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>FundPortfolio
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>FundPortfolioID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>資金履歷編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “FundPortfolio”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>資金履歷名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ＋Pool
+
+Data Import：
+
+Description：資金池資訊
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>Pool
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>PoolID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>資金池編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “Pool”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>特資金池名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>FundPortfolioRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(FundPortfolio)→ 
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>資金履歷參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### ＋SPV
+
+Data Import：
+
+Description：特殊目的項目公司資訊 \
+
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>SPV
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>SPVID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>特殊目的項目公司編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “SPV”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>varchar(300)
+   </td>
+   <td>特殊目的項目公司名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>PoolRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Pool)→ 
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>資金池參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>FundPortfolioRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(FundPortfolio)→ 
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>資金履歷參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+### VPP - Optimized Dispatch related (待確認)
+
+
+### Finance related
+
+
+#### BillObjectMapping(改SolarPowerNumber)
+
+Source：
+
+Description：
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>LoadBill
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>powerNumber
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(15)
+   </td>
+   <td>電號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>
+   </td>
+   <td>varchar(60)
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “BillMappingObject”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>generatingSet
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(2)
+   </td>
+   <td>機組
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>objectID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>PK
+   </td>
+   <td>varchar(10)
+   </td>
+   <td>案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### #AncillaryService
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ancillaryServiceID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>裝置編號
+   </td>
+   <td>ID
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “DeviceDefinition”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>name
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>varchar
+   </td>
+   <td>裝置名稱
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>priceRef
+   </td>
+   <td>0..1
+   </td>
+   <td>Reference(Price)→ 
+   </td>
+   <td>varchar
+   </td>
+   <td>躉售價格參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>ancillaryServiceType
+   </td>
+   <td>0..*
+   </td>
+   <td>BackboneElement
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>enum!
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>regulation | spinning | supplemental  \
+調頻備轉 | 即時備轉 | 補充備轉
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-capacity
+   </td>
+   <td>1..1
+   </td>
+   <td>Float!
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+### O&M related
+
+
+#### @`rfdme-edgecenternode-state-rfdme (DynamoDB)
+
+Description：記錄微電邊端中心節點之 CoreDevice (樹莓派)與 ClientDevice 狀態。 \
+Implement：interface State
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodeID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>邊緣中心節點編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “State”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>coreDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>json
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>enum
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice
+   </td>
+   <td>rfdmeraspberry | advantechlogger | some energy manage system | …
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference( RfdmeRaspberry!)
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>json
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference( ClientDevice!)
+   </td>
+   <td>varchar
+   </td>
+   <td>clientDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>locationObjectID
+   </td>
+   <td>0..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>位置案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>hutState
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>integer
+   </td>
+   <td>clientDevice狀態全覽
+   </td>
+   <td>0為
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mbMode
+   </td>
+   <td>0..1
+   </td>
+   <td>String
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice單雙系統
+   </td>
+   <td>single代表只有一個coreDevice，double
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>mbState
+   </td>
+   <td>0..1
+   </td>
+   <td>Int
+   </td>
+   <td>integer
+   </td>
+   <td>coreDevice狀態全覽
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+#### @rfdme-edgecenternode-state-advantech (DynamoDB)
+
+Description：記錄微電邊端中心節點之 CoreDevice (advantech)與 ClientDevice 狀態。 \
+Implement：interface State
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>edgeCenterNodeID
+   </td>
+   <td>1..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>邊緣中心節點編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>type
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>varchar
+   </td>
+   <td>資料類別
+   </td>
+   <td>constant string value → “State”
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>coreDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>jsonb
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-type
+   </td>
+   <td>1..1
+   </td>
+   <td>enum
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice
+   </td>
+   <td>rfdmeraspberry | advantechlogger | some energy manage system | …
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference(UNION advantech!)
+   </td>
+   <td>varchar
+   </td>
+   <td>coreDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>coreDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>clientDeviceState
+   </td>
+   <td>0..*
+   </td>
+   <td>[Backbone(edgeState)]
+   </td>
+   <td>jsonb
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-edgeRef
+   </td>
+   <td>1..1
+   </td>
+   <td>Reference( ClientDevice!)
+   </td>
+   <td>varchar
+   </td>
+   <td>clientDevice參考
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>|-state
+   </td>
+   <td>1..1
+   </td>
+   <td>Boolean
+   </td>
+   <td>boolean
+   </td>
+   <td>clientDevice狀態
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>locationObjectID
+   </td>
+   <td>0..1
+   </td>
+   <td>ID!
+   </td>
+   <td>varchar
+   </td>
+   <td>位置案場編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>recordTrail
+   </td>
+   <td>1..1
+   </td>
+   <td>RecordLog!
+   </td>
+   <td>jsonb
+   </td>
+   <td>資料日誌
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+### Monitoring data related
+
+
+### Forecast data related
+
+
+#### ##InsolationPredictionLog
+
+Data Import：無
+
+Source: 無
+
+Description: 待 Jerry 進行補充
+
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Name
+   </td>
+   <td>Card.
+   </td>
+   <td>AppSync Type
+   </td>
+   <td>SQL-Type
+   </td>
+   <td>Name
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>PvSatellitePrediction
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Element
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logID
+   </td>
+   <td>1..1
+   </td>
+   <td>String!
+   </td>
+   <td>uuid
+   </td>
+   <td>log編號
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logTime
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSDateTime
+   </td>
+   <td>timestamp
+<p>
+with time zone
+   </td>
+   <td>記錄時間
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>|-
+   </td>
+   <td>logValue
+   </td>
+   <td>0..1
+   </td>
+   <td>AWSJson
+   </td>
+   <td>jsonb
+   </td>
+   <td>記錄內容
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
+
+### Support related
+
+
+### TPC related
+
+
+### Power Wheeling related
